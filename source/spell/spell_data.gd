@@ -24,7 +24,7 @@ var immediate_effect: = false
 
 static func _static_init() -> void :
  random_charge_spells.clear()
- for spell in Globals.SPELL_POOL.merged(SpellFramework.added_spells):
+ for spell in Globals.SPELL_POOL:
   var group: = StringManager.get_string_group("spell/" + spell)
   if group.has_string("charge_characters"):
    random_charge_spells.append(spell)

@@ -462,7 +462,7 @@ enum Intent{
  PREPARING, 
 }
 
-const SPELL_POOL = {
+var SPELL_POOL = {
  SPELLS.CTRL: 1.0, 
  SPELLS.PAPER_SHREDDER: 1.0, 
  SPELLS.SOBRIETY_TEST: 1.0, 
@@ -584,7 +584,7 @@ const DEFENSIVE_CHILD_SPELLS: Array[String] = [
  SPELLS.FAKE_ID, 
 ]
 
-const SPELL_CATEGORIES = {
+var SPELL_CATEGORIES = {
  SPELL_CATEGORY.SUPPORT: [
   SPELLS.CTRL, 
   SPELLS.PAPER_SHREDDER, 
@@ -1416,13 +1416,13 @@ func get_spell_pool(category = null):
  var spell_pool = {}
 
  if category != null:
-  weighted_spells = SPELL_CATEGORIES[category].merged(SpellFramework.spell_catagories[category])
+  weighted_spells = SPELL_CATEGORIES[category]
  else:
-    weighted_spells=SPELL_POOL.merged(SpellFramework.added_spells)
+    weighted_spells=SPELL_POOL
 
  for spell in weighted_spells:
   if is_spell_unlocked(spell):
-   spell_pool[spell] = SPELL_POOL.merged(SpellFramework.added_spells)[spell]
+   spell_pool[spell] = SPELL_POOL
 
  return spell_pool
 
