@@ -10,7 +10,7 @@ The Foggy Glasses are included in this repo as an example of a mod which uses th
 1. Make up an spell id for you spell. They are usually in snake case (foggy_glasses). Any instances of `spell_id` should be replaced with whatever id you chose
 2. Make the strings file for your spell in `res://strings/spell/spell_id`
 > [!IMPORTANT]
-> The strings files use tabs for indentation howerver the Godot built in text editor uses spaces and will automatilly replace tabs with spaces when opening a file. Make sure to press Edit>indentation>convert indentation to tabs or use an external text editor for editing and strings files
+> The strings files use tabs for indentation howerver the Godot built in text editor uses spaces and will automatilly replace tabs with spaces when editing a file. Make sure to press Edit>indentation>convert indentation to tabs or use an external text editor for editing strings files
 
 The strings file for you spell should follow this template
 ```
