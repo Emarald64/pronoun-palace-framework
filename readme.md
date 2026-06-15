@@ -1,6 +1,7 @@
 # Pronoun Palace Spell Framework
 
-The Foggy Glasses are included in this repo as an example of a mod which uses the framework
+The Foggy Glasses are included in this repo as an example of a mod which uses the framework.   
+The foggy glasses are based off the Dyslexic character by [Soƒti](https://bsky.app/profile/softisafe.bsky.social)
 
 > [!NOTE]
 > The framework requires a specific version of Pronoun Palace to work. The version will be shown on the release page and you will see a popup when starting the game on an unsupported version
