@@ -21,17 +21,21 @@ var use_while_selecting: = false
 var no_use_sound: = false
 var immediate_effect: = false
 
-
 static func _static_init() -> void :
- random_charge_spells.clear()
- for spell in Globals.SPELL_POOL:
-  var group: = StringManager.get_string_group("spell/" + spell)
-  if group.has_string("charge_characters"):
-   random_charge_spells.append(spell)
-  else:
-   var category: = group.get_string("charge_category")
-   if category not in Globals.SPECIAL_CHARGES:
-    random_charge_spells.append(spell)
+    print("loading random charge spells")
+    random_charge_spells.clear()
+    var spell_data=load("res://mods/spell_framework/mod.gd")
+    #SpellFramework.reset_spell_pool()
+    for spell in spell_data.spell_pool:
+        var group: = StringManager.get_string_group("spell/" + spell)
+        if group.has_string("charge_characters"):
+            random_charge_spells.append(spell)
+        else:
+            var category: = group.get_string("charge_category")
+            if category not in Globals.SPECIAL_CHARGES:
+                random_charge_spells.append(spell)
+    print("loaded random charge spells")
+ 
 
 
 func _init(_id: String) -> void :

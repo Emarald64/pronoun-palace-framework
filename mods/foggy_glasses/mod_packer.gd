@@ -6,7 +6,11 @@ var files: Array[String] = [
  "res://mods/foggy_glasses/mod.tscn",
  "res://mods/foggy_glasses/mod.gd",
  "res://strings/spell/foggy_glasses.txt",
- "res://source/spells/foggy_glasses.gd"
+ "res://source/spells/foggy_glasses.gd",
+
+ "res://strings/spell/nuke.txt",
+ "res://source/characters/lexicographer.gd",
+ "res://source/spells/nuke.gd"
 ]
 
 

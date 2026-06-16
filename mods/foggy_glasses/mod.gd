@@ -1,4 +1,4 @@
 extends Mod
 
 func _ready() -> void:
-    SpellFramework.add_spell("foggy_glasses",1000.0,Globals.SPELL_CATEGORY.SUPPORT)
+    load("res://mods/spell_framework/mod.gd").add_spell("foggy_glasses",10000.0,"support")

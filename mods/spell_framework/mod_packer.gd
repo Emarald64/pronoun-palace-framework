@@ -6,7 +6,8 @@ var files: Array[String] = [
  "res://mods/spell_framework/mod.tscn",
  "res://mods/spell_framework/mod.gd",
  "res://mods/spell_framework/incompatible_version_popup.tscn",
- "res://source/autoload/globals.gd",
+ "res://mods/spell_framework/custom_globals.gd",
+ #"res://override.cfg",
  "res://source/spell/spell_data.gd"
 ]
 
