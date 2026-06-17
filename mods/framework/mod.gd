@@ -1,6 +1,6 @@
 class_name SpellFramework extends Mod
 
-const pronoun_palace_version="1.0.21"
+const pronoun_palace_version="1.0.23"
 
 static var spell_pool:Dictionary
 static var spell_categories:Dictionary=Globals.SPELL_CATEGORIES.duplicate(true)
@@ -58,10 +58,6 @@ static func change_script_and_copy_properties(object:Object,script:Script):
         if property.name!="script":
             properties[property.name]=object.get(property.name)
     #print(properties)
-    #var signals:Dictionary[String,Array]
-    #for sig in object.get_signal_list():
-        #signals[sig.name]=object.get_signal_connection_list(sig.name)
-    #print(signals)
     print("saved properties")
     object.set_script(script)
     print("changed script")
@@ -69,11 +65,6 @@ static func change_script_and_copy_properties(object:Object,script:Script):
     # preset all properties
     for property in properties:
         object.set(property,properties[property])
-    #for sig in signals:
-        #for connection in signals[sig]:
-            #if not object.is_connected(sig,connection.callable):
-                #print("connected "+sig+" to "+str(connection.callable))
-                #object.connect(sig,connection.callable,connection.flags)
     print("set properties")
 
 func _ready() -> void:
