@@ -1,0 +1,5 @@
+:name:
+    Paparazzi
+
+:phonebook:
+    Paparzzi phonebook

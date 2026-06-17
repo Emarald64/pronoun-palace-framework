@@ -8,9 +8,12 @@ var files: Array[String] = [
  "res://strings/spell/foggy_glasses.txt",
  "res://source/spells/foggy_glasses.gd",
 
- "res://strings/spell/nuke.txt",
- "res://source/characters/lexicographer.gd",
- "res://source/spells/nuke.gd"
+ "res://source/enemies/paparazzi.tscn",
+ "res://arte/enemies/paparazzi.png",
+ "res://source/enemies/sprites/paparazzi_sprite.tscn",
+ "res://source/enemies/paparazzi.gd",
+ "res://source/enemies/paparazzi.tscn",
+ "res://strings/enemy/paparazzi.txt"
 ]
 
 

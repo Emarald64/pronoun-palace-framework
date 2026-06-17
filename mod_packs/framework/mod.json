@@ -1,8 +1,8 @@
 {
-    "id": "spell_framework",
+    "id": "framework",
     "packs":[
         {
-            "path":"spell_framework.pck",
+            "path":"framework.pck",
             "override":true,
             "phase":"early",
         }

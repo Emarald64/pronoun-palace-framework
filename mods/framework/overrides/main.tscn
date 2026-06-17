@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bxifpmqgfrssk"]
+
+[ext_resource type="PackedScene" uid="uid://dt2be1wikfttk" path="res://source/main.tscn" id="1_kt8xo"]
+[ext_resource type="Script" uid="uid://d1x1pd50orhu0" path="res://mods/framework/overrides/custom_main.gd" id="2_26mio"]
+
+[node name="Main" unique_id=180122661 instance=ExtResource("1_kt8xo")]
+script = ExtResource("2_26mio")
+
+[editable path="GameUILayer/TileBoard"]
+[editable path="MenuLayer/PauseMenu/ResumeButton"]

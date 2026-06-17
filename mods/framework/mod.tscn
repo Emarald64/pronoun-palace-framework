@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://p5vgcbmna4j"]
 
-[ext_resource type="Script" uid="uid://5rh450pwsf2l" path="res://mods/spell_framework/mod.gd" id="1_65cjn"]
+[ext_resource type="Script" uid="uid://5rh450pwsf2l" path="res://mods/framework/mod.gd" id="1_65cjn"]
 
 [node name="Mod" type="Node" unique_id=1189891935]
 script = ExtResource("1_65cjn")

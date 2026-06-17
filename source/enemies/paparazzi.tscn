@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bforx1mnsk4ij"]
+
+[ext_resource type="PackedScene" uid="uid://cbdk6hv7wu8im" path="res://source/battle_unit/enemy.tscn" id="1_ccc2u"]
+[ext_resource type="Script" uid="uid://dml6qli2qh2v0" path="res://source/enemies/paparazzi.gd" id="2_l160d"]
+[ext_resource type="PackedScene" uid="uid://d3shq1aroex5k" path="res://source/enemies/sprites/paparazzi_sprite.tscn" id="3_l160d"]
+
+[node name="paparazzi" unique_id=1229850646 instance=ExtResource("1_ccc2u")]
+script = ExtResource("2_l160d")
+
+[node name="Sprite" parent="." index="0" unique_id=1356876798 instance=ExtResource("3_l160d")]
