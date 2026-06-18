@@ -55,6 +55,7 @@ optional:
 ```
 
 (as of now the phonebook is not altered but that may be in a future update)
+
 3. Create a scene and script for your enemy in `res://source/enemies` named enemy_id.tscn and enemy_id.gd.
 The enemy script should extend Enemy. Look at the vanilla enemies and the paparazzi scripts for examples
 4. Create the scene for your enemy sprite `res://source/enemies/sprites/enemy_id_sprite.tscn`. It should be an inherited scene of `res://source/battle_unit_sprite.tscn` 
