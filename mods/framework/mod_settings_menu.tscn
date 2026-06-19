@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cs81r8efab4xv"]
+
+[ext_resource type="Script" uid="uid://vuslcs6dwhh0" path="res://mods/framework/mod_settings_menu.gd" id="1_y7daj"]
+[ext_resource type="PackedScene" uid="uid://g1dybr48h6i7" path="res://mods/framework/mod_options.tscn" id="2_2ou5p"]
+
+[node name="Mod Settings Menu" type="Control" unique_id=1199436283]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y7daj")
+
+[node name="Mod list" type="VBoxContainer" parent="." unique_id=483770724]
+layout_mode = 0
+offset_right = 79.0
+offset_bottom = 37.0
+
+[node name="Test Button" type="Button" parent="Mod list" unique_id=183328751]
+layout_mode = 2
+text = "test_mod"
+
+[node name="Test mod options" parent="." unique_id=874286168 instance=ExtResource("2_2ou5p")]
+layout_mode = 0
+
+[connection signal="pressed" from="Mod list/Test Button" to="Mod list" method="hide"]

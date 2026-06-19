@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cklcumtvqm4b4"]
+
+[ext_resource type="PackedScene" uid="uid://devfub5t1f20f" path="res://source/characters/sprites/dew_jubilist_sprite.tscn" id="1_n07yb"]
+[ext_resource type="Script" uid="uid://b1gtnbexv8ojs" path="res://source/characters/dew_jubilist.gd" id="1_vfje1"]
+
+[node name="DewJubilist" type="Node2D" unique_id=1281187235]
+script = ExtResource("1_vfje1")
+
+[node name="Sprite" parent="." unique_id=1574140519 instance=ExtResource("1_n07yb")]

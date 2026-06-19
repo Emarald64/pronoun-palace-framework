@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://d13ropelucbsr"]
+
+[ext_resource type="PackedScene" uid="uid://7wesrfmbvner" path="res://source/ui/menu/character_select/character_selector_icon.tscn" id="1_tj6j7"]
+[ext_resource type="Script" uid="uid://dup2b6kbpaj3t" path="res://mods/framework/overrides/character_icon.gd" id="2_m7bl3"]
+
+[node name="CharacterSelectorIcon" unique_id=1675093935 instance=ExtResource("1_tj6j7")]
+
+[node name="CharacterIcon" parent="HoverOffset" parent_id_path=PackedInt32Array(525735049) index="0" unique_id=1904229260]
+script = ExtResource("2_m7bl3")

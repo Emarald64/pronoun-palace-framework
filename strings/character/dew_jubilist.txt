@@ -1,0 +1,33 @@
+:title:
+	Dew Jubilist
+
+:name:
+	Tina Duremsburg
+
+:description:
+	A jubilst vandal going to vandalize the "Pronoun Palace"
+
+:spell_description:
+	Convert two random tiles to candy.
+	Convert the top four non-acid tiles to acid
+
+:info_title:
+	Info
+
+:info:
+	The dewfault experience.
+
+:sex:
+	F
+
+:pronouns:
+	she/her
+
+:height:
+	5-10
+
+:weight:
+	{"144" if trans}{"142" not trans}
+
+:occupation:
+	VANDAL

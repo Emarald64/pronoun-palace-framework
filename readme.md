@@ -1,4 +1,4 @@
-# Pronoun Palace Spell Framework
+# Pronoun Palace Framework
 
 The Foggy Glasses are included in this repo as an example of a mod which uses the framework.   
 The foggy glasses are based off the Dyslexic character by [Soƒti](https://bsky.app/profile/softisafe.bsky.social)
@@ -61,3 +61,9 @@ The enemy script should extend Enemy. Look at the vanilla enemies and the papara
 4. Create the scene for your enemy sprite `res://source/enemies/sprites/enemy_id_sprite.tscn`. It should be an inherited scene of `res://source/battle_unit_sprite.tscn` 
 The AnimPlayer must have a flinch animation and should preferably have a dying and die animation as well as any animations for attacks
 5. In your mod script call `load("res://mods/framework/enemy_loader.gd").add_enemy("enemy_id",act,floor)` replacing act and floor with the act and postition in the act that your enemy will appear in respecively.
+
+## TODO
+
+* Add custom nobody fight logic for custom characters
+* Write on how to add a character
+* Prevent dew jubilist's verification can spell from being removed

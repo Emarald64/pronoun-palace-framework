@@ -13,6 +13,13 @@ var files: Array[String] = [
  #"res://source/globals/enemies.gd",
  "res://source/spell/spell_data.gd",
  "res://mods/framework/enemy_loader.gd",
+
+"res://mods/framework/character_loader.gd",
+"res://mods/framework/overrides/character_icon.gd",
+"res://mods/framework/overrides/character_icon.tscn",
+"res://mods/framework/overrides/character_selector.gd",
+"res://mods/framework/overrides/character_selector_icon.tscn",
+"res://mods/framework/overrides/difficulty_selector.gd"
  #"res://mods/spell_framework/script_overrides/phonebook_selector.gd"
 ]
 

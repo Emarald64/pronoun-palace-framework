@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://g1dybr48h6i7"]
+
+[ext_resource type="Script" uid="uid://cqnya5ol21mx6" path="res://mods/framework/mod_options.gd" id="1_4c8ah"]
+[ext_resource type="PackedScene" uid="uid://dd2o8mw1v8juo" path="res://source/ui/menu/settings/input_guide.tscn" id="2_hcgfw"]
+[ext_resource type="PackedScene" uid="uid://bkxi3xipa3jye" path="res://source/ui/menu/settings/setting.tscn" id="3_usel8"]
+
+[node name="Test mod options" type="VBoxContainer" unique_id=874286168]
+offset_right = 90.0
+offset_bottom = 25.0
+script = ExtResource("1_4c8ah")
+
+[node name="Back Button" type="Button" parent="." unique_id=1765286427]
+layout_mode = 2
+text = "Back"
+
+[node name="CheckBox" type="CheckBox" parent="." unique_id=1417286289]
+layout_mode = 2
+text = "test option"
+
+[node name="InputGuide" parent="." unique_id=1467343028 instance=ExtResource("2_hcgfw")]
+layout_mode = 2
+
+[node name="Setting" parent="." unique_id=232054846 instance=ExtResource("3_usel8")]
+layout_mode = 2
+
+[connection signal="pressed" from="Back Button" to="." method="back"]

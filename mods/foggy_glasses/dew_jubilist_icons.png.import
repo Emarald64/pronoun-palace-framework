@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://butvdjhu7lbgc"
-path="res://.godot/imported/paparazzi.png-d37c73de1b7ccbb6b1bab58b211e9771.ctex"
+uid="uid://214c0utvxbrk"
+path="res://.godot/imported/dew_jubilist_icons.png-7824edaaf1fc60799512cb5d253f2407.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arte/enemies/paparazzi.png"
-dest_files=["res://.godot/imported/paparazzi.png-d37c73de1b7ccbb6b1bab58b211e9771.ctex"]
+source_file="res://mods/foggy_glasses/dew_jubilist_icons.png"
+dest_files=["res://.godot/imported/dew_jubilist_icons.png-7824edaaf1fc60799512cb5d253f2407.ctex"]
 
 [params]
 
