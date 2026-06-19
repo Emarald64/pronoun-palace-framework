@@ -35,7 +35,7 @@ or
 
 optional:
 :flags:
-	removes_word discharge_on_load character spacific(one of: lexographer,child)
+	removes_word discharge_on_load (id of the character its a character spell for)
 ```
 
 3. Create the spell script in `res://source/spells/spell_id.gd` it should inherit Spell if you don't select a tile to affect or TileModifierSpell if it does. Look at the spells already in the game or the foggy glasses for examples of spell scripts
@@ -57,13 +57,75 @@ optional:
 (as of now the phonebook is not altered but that may be in a future update)
 
 3. Create a scene and script for your enemy in `res://source/enemies` named enemy_id.tscn and enemy_id.gd.
-The enemy script should extend Enemy. Look at the vanilla enemies and the paparazzi scripts for examples
+The enemy script should extend Enemy. Look at the vanilla enemies and the paparazzi scripts for examples. Additionally, diffrently from vanilla enemies, you need to define _get_health_scaling() which returns an array of length 4 for health values at diffrent dificulties.
 4. Create the scene for your enemy sprite `res://source/enemies/sprites/enemy_id_sprite.tscn`. It should be an inherited scene of `res://source/battle_unit_sprite.tscn` 
 The AnimPlayer must have a flinch animation and should preferably have a dying and die animation as well as any animations for attacks
 5. In your mod script call `load("res://mods/framework/enemy_loader.gd").add_enemy("enemy_id",act,floor)` replacing act and floor with the act and postition in the act that your enemy will appear in respecively.
 
-## TODO
+## How to add your own character
 
-* Add custom nobody fight logic for custom characters
-* Write on how to add a character
-* Prevent dew jubilist's verification can spell from being removed
+1. Make an id for your character. It should be snake_case. Replace any char_id in the guide with this id.
+2. Make the strings file for your character `res://strings/character/char_id.txt`. it should look like this:
+
+```
+:title:
+	Strawman
+
+:name:
+	{"Straw Woman" if trans}{"Straw Man" not trans}
+
+:description:
+	A wouge stwawman made by the pawty
+	May expwode unpwedictabwy
+
+:spell_description:
+	Make all the tiles on the board bombs.
+
+:info_title:
+	Info
+
+:info:
+	An explosive chalange
+
+:sex:
+	{"F" if trans}{"M" not trans}
+
+:pronouns:
+	she/her
+
+:height:
+	5-10
+
+:weight:
+	{"144" if trans}{"142" not trans}
+
+:occupation:
+	STRAWMAN
+```
+
+3. Create the sripte for your character. You can base it off of one the vanilla character sprites. It should be at `res://source/source/characters/sprites/char_id.tscn` 
+4. Create the character script at `res://source/characters/char_id.gd`. It should look like this:  
+```
+func _init():
+ id = "char_id"
+ starting_spells = ["starting_spell_id"]
+
+
+func get_gender():
+ if is_trans():
+  return Gender.FEMALE
+ else:
+  return Gender.MALE
+```   
+(The get_gender function isn't used but may be in a future update)
+
+5.  Create the character scene at `res://source/characters/char_id.tscn`. It should have a Node2D with the character script attached and the character sprite named `Sprite` as a child
+6. In your mod script call load("res://mods/framework/character_loader.gd").add_character("char_id","starting_spell_id").  
+Note that character spells do not need to be registered seperatly with the framework and should have the tag of their character's id in the spell's strings file
+7. (optional) Make icons for your character. They should be 34x34 each and be in a spritesheet stacked verticlly with the trans version on the bottom. Load it and put it as the third argumant for the add_character function
+### Nobody Fight. 
+
+By default custom characters will use the lexicographer's nobody fight  
+If you want a custom one follow the guide the create an enemy. you will most likely want to inherit nobody's scene `res://source/enemies/nobody.tscn` and extend it's script `res://source/enemies/nobody.gd`
+
+Put the path the the custom nobody scene as the fourth argument to the add character function

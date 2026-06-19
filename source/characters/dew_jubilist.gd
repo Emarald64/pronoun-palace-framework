@@ -3,7 +3,7 @@ extends Player
 
 func _init():
  id = "dew_jubilist"
- starting_spells = [SPELLS.VERIFICATION_CAN]
+ starting_spells = ["dew_jubilist_verification_can"]
 
 
 func get_gender():

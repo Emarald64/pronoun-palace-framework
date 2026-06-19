@@ -6,6 +6,8 @@ const CURSES = Globals.SPELL_CURSES
 
 static var random_charge_spells: Array[String] = []
 
+static var character_loader=load("res://mods/framework/character_loader.gd")
+
 var id: String = ""
 
 var charge_category: String = CHARGE_CATEGORIES.COMMON
@@ -56,7 +58,7 @@ func _init(_id: String) -> void :
  if group.has_string("flags"):
   var flags: = group.get_string("flags").split(" ", false)
   for flag in flags:
-   if flag in Globals.CHARACTERS.values():
+   if flag in Globals.CHARACTERS.values() or flag in character_loader.added_characters:
     character = flag
     character_specific = true
     fixed_max_charge = true

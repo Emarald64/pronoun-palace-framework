@@ -22,6 +22,9 @@ var files: Array[String] = [
  "res://source/characters/dew_jubilist.gd",
  "res://source/characters/dew_jubilist.tscn",
  "res://strings/character/dew_jubilist.txt",
+ "res://source/spells/dew_jubilist_verification_can.gd",
+ "res://arte/spells/dew_jubilist_verification_can.png",
+ "res://strings/spell/dew_jubilist_verification_can.txt"
 ]
 
 
