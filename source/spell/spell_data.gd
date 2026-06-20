@@ -24,36 +24,36 @@ var no_use_sound: = false
 var immediate_effect: = false
 
 static func load_random_charge_spells(spell_pool) -> void :
-    print("loading random charge spells")
-    random_charge_spells.clear()
-    for spell in spell_pool:
-        var group: = StringManager.get_string_group("spell/" + spell)
-        if group.has_string("charge_characters"):
-            random_charge_spells.append(spell)
-        else:
-            var category: = group.get_string("charge_category")
-            if category not in Globals.SPECIAL_CHARGES:
-                random_charge_spells.append(spell)
-    print("loaded random charge spells")
+	print("loading random charge spells")
+	random_charge_spells.clear()
+	for spell in spell_pool:
+		var group: = StringManager.get_string_group("spell/" + spell)
+		if group.has_string("charge_characters"):
+			random_charge_spells.append(spell)
+		else:
+			var category: = group.get_string("charge_category")
+			if category not in Globals.SPECIAL_CHARGES:
+				random_charge_spells.append(spell)
+	print("loaded random charge spells")
  
 
 
 func _init(_id: String) -> void :
- id = _id
+	id = _id
 
- var group: = StringManager.get_string_group("spell/" + id)
+	var group: = StringManager.get_string_group("spell/" + id)
 
- if group.has_string("charge_characters"):
-  charge_category = CHARGE_CATEGORIES.SPECIFY
-  specific_characters = group.get_string("charge_characters").split()
- else:
-  charge_category = group.get_string("charge_category")
+	if group.has_string("charge_characters"):
+		charge_category = CHARGE_CATEGORIES.SPECIFY
+		specific_characters = group.get_string("charge_characters").split()
+	else:
+		charge_category = group.get_string("charge_category")
 
- if group.has_string("exclude_characters"):
-  exclude_characters = group.get_string("exclude_characters").split()
+	if group.has_string("exclude_characters"):
+		exclude_characters = group.get_string("exclude_characters").split()
 
- if has_charge() and charge_category != CHARGE_CATEGORIES.RANDOM_SPELL:
-  base_max_charge = group.get_string("max_charge").to_int()
+	if has_charge() and charge_category != CHARGE_CATEGORIES.RANDOM_SPELL:
+		base_max_charge = group.get_string("max_charge").to_int()
 
  if group.has_string("flags"):
   var flags: = group.get_string("flags").split(" ", false)
@@ -79,53 +79,53 @@ func _init(_id: String) -> void :
 
 
 func has_charge() -> bool:
- return charge_category != CHARGE_CATEGORIES.UNLIMITED
+	return charge_category != CHARGE_CATEGORIES.UNLIMITED
 
 
 func has_charge_character() -> bool:
- return charge_category not in [CHARGE_CATEGORIES.UNLIMITED, CHARGE_CATEGORIES.LIMITED, CHARGE_CATEGORIES.AUTO]
+	return charge_category not in [CHARGE_CATEGORIES.UNLIMITED, CHARGE_CATEGORIES.LIMITED, CHARGE_CATEGORIES.AUTO]
 
 
 func get_charge_pool() -> Array[String]:
- var pool: Array[String] = []
- if charge_category in Globals.CHARGE_CHARACTERS:
-  pool.append_array(Globals.CHARGE_CHARACTERS[charge_category])
- elif charge_category == CHARGE_CATEGORIES.SPECIFY:
-  pool.append_array(specific_characters)
+	var pool: Array[String] = []
+	if charge_category in Globals.CHARGE_CHARACTERS:
+		pool.append_array(Globals.CHARGE_CHARACTERS[charge_category])
+	elif charge_category == CHARGE_CATEGORIES.SPECIFY:
+		pool.append_array(specific_characters)
 
- if exclude_characters.size() != 0:
-  return pool.filter( func(letter): return letter not in exclude_characters)
- else:
-  return pool
+	if exclude_characters.size() != 0:
+		return pool.filter( func(letter): return letter not in exclude_characters)
+	else:
+		return pool
 
 
 func can_reroll_charge():
- if not has_charge_character():
-  return false
+	if not has_charge_character():
+		return false
 
- if get_charge_pool().size() <= 1:
-  return false
+	if get_charge_pool().size() <= 1:
+		return false
 
- return true
+	return true
 
 
 func can_have_curse(curse):
- if id == Globals.SPELLS.RED_LETTER or id == Globals.SPELLS.RED_TAPE:
-  return false
+	if id == Globals.SPELLS.RED_LETTER or id == Globals.SPELLS.RED_TAPE:
+		return false
 
- var is_gift = id in Globals.GIFT_SPELLS
+	var is_gift = id in Globals.GIFT_SPELLS
 
- if not is_gift:
-  if curse in [CURSES.FRAGILE, CURSES.LACED] and not has_charge():
-   return false
+	if not is_gift:
+		if curse in [CURSES.FRAGILE, CURSES.LACED] and not has_charge():
+			return false
 
-  elif curse == CURSES.FRAGILE and charge_category in [CHARGE_CATEGORIES.LIMITED, CHARGE_CATEGORIES.AUTO]:
-   return false
+		elif curse == CURSES.FRAGILE and charge_category in [CHARGE_CATEGORIES.LIMITED, CHARGE_CATEGORIES.AUTO]:
+			return false
 
-  elif curse == CURSES.ESOTERIC and not can_reroll_charge():
-   return false
+		elif curse == CURSES.ESOTERIC and not can_reroll_charge():
+			return false
 
- if curse == CURSES.SHINY and Game.player.get_num_spells() <= 1:
-  return false
+	if curse == CURSES.SHINY and Game.player.get_num_spells() <= 1:
+		return false
 
- return true
+	return true

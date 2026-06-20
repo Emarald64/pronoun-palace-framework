@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://devfub5t1f20f"]
+
+[ext_resource type="PackedScene" uid="uid://cla61trg318u7" path="res://source/characters/sprites/jubilist_sprite.tscn" id="1_n210y"]
+[ext_resource type="Texture2D" uid="uid://bvoyj0hf4uowb" path="res://arte/characters/dew_jubilist_trans.png" id="2_72o0l"]
+[ext_resource type="Texture2D" uid="uid://cm0gjvhvpfopm" path="res://arte/characters/dew_jubilist.png" id="3_uswho"]
+
+[node name="DewJubilistSprite" unique_id=1574140519 instance=ExtResource("1_n210y")]
+trans_texture = ExtResource("2_72o0l")
+base_texture = ExtResource("3_uswho")
