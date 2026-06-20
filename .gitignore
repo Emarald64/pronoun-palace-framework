@@ -1,15 +1,4 @@
-# System files
-**/.DS_Store
-Thumbs.db
-**/Thumbs.db
-# GDRE specific ignores
-.gltf_copy/
-.untouched_gltf_copy/
-.tscn_copy/
-.tscn_manip/
-.autoconverted/
-gdre_export.json
-gdre_export.log
-# Mono build directory
-.mono/
-.godot/*
+*
+
+!mods
+!mod_packs/*/mod.json

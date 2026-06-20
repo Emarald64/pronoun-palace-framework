@@ -6,6 +6,7 @@
 
 :description:
 	A jubilst vandal going to vandalize the "Pronoun Palace"
+	{"Caught up with" if trans}{"Emarrassingly behind on" not trans} the current trends.
 
 :spell_description:
 	Convert two random tiles to candy.

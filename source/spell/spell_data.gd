@@ -55,27 +55,27 @@ func _init(_id: String) -> void :
 	if has_charge() and charge_category != CHARGE_CATEGORIES.RANDOM_SPELL:
 		base_max_charge = group.get_string("max_charge").to_int()
 
- if group.has_string("flags"):
-  var flags: = group.get_string("flags").split(" ", false)
-  for flag in flags:
-   if flag in Globals.CHARACTERS.values() or flag in character_loader.added_characters:
-    character = flag
-    character_specific = true
-    fixed_max_charge = true
-   elif flag == "discharge_on_load":
-    discharge_on_load = true
-   elif flag == "fixed_max_charge":
-    fixed_max_charge = true
-   elif flag == "removes_word":
-    removes_word = true
-   elif flag == "use_while_selecting":
-    use_while_selecting = true
-   elif flag == "no_use_sound":
-    no_use_sound = true
-   elif flag == "immediate":
-    immediate_effect = true
-   else:
-    assert (false, "Invalid spell flag " + flag + " for spell " + id)
+	if group.has_string("flags"):
+		var flags: = group.get_string("flags").split(" ", false)
+		for flag in flags:
+			if flag in Globals.CHARACTERS.values() or flag in character_loader.added_characters:
+				character = flag
+				character_specific = true
+				fixed_max_charge = true
+			elif flag == "discharge_on_load":
+				discharge_on_load = true
+			elif flag == "fixed_max_charge":
+				fixed_max_charge = true
+			elif flag == "removes_word":
+				removes_word = true
+			elif flag == "use_while_selecting":
+				use_while_selecting = true
+			elif flag == "no_use_sound":
+				no_use_sound = true
+			elif flag == "immediate":
+				immediate_effect = true
+			else:
+				assert (false, "Invalid spell flag " + flag + " for spell " + id)
 
 
 func has_charge() -> bool:

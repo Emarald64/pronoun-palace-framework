@@ -12,41 +12,39 @@ extends "res://source/autoload/globals.gd"
 var character_loader=load("res://mods/framework/character_loader.gd")
 
 func _ready() -> void:
-    print("using custom globals")
-    print("spell pool"+str(load("res://mods/framework/mod.gd").spell_pool))
-    #SpellData._static_init()
+	print("using custom globals")
+	print("spell pool"+str(load("res://mods/framework/mod.gd").spell_pool))
+	#SpellData._static_init()
 
 func get_spell_pool(category = null):
- print("loading custom spell pool")
- var spell_framework=load("res://mods/framework/mod.gd")
- var weighted_spells = spell_framework.spell_pool
- var spell_pool = {}
+	print("loading custom spell pool")
+	var spell_framework=load("res://mods/framework/mod.gd")
+	var weighted_spells = spell_framework.spell_pool
+	var spell_pool = {}
 
- if category != null:
-  weighted_spells = SPELL_CATEGORIES[category]
+	if category != null:
+		weighted_spells = SPELL_CATEGORIES[category]
 
- for spell in weighted_spells:
-  if is_spell_unlocked(spell):
-   spell_pool[spell] = spell_framework.spell_pool[spell]
- print("spell pool "+str(spell_pool))
- return spell_pool
+	for spell in weighted_spells:
+		if is_spell_unlocked(spell):
+			spell_pool[spell] = spell_framework.spell_pool[spell]
+	print("spell pool "+str(spell_pool))
+	return spell_pool
 
 func is_difficulty_unlocked(difficulty: int, character: String = "") -> bool:
- if character in character_loader.added_characters:
-    return true
- if character == "":
-  return AchievementManager.has_achievement(Globals.ACHIEVEMENTS.OVERALL_MAX_DIFFICULTY, difficulty)
- else:
-  if not Globals.is_character_unlocked(character):
-   return false
+	if character in character_loader.added_characters:
+		return true
+	if character == "":
+		return AchievementManager.has_achievement(Globals.ACHIEVEMENTS.OVERALL_MAX_DIFFICULTY, difficulty)
+	else:
+		if not Globals.is_character_unlocked(character):
+			return false
 
-  var character_difficulty = Globals.CHARACTER_DIFFICULTY_ACHIEVEMENTS[character]
-  return AchievementManager.has_achievement(character_difficulty, difficulty)
+		var character_difficulty = Globals.CHARACTER_DIFFICULTY_ACHIEVEMENTS[character]
+		return AchievementManager.has_achievement(character_difficulty, difficulty)
 
 func is_character_trans(id, difficulty):
- if id=="dew_jubilist":
-    pass
- if difficulty == 10:
-  return id in character_loader.added_characters or AchievementManager.has_achievement(CHARACTER_DIFFICULTY_ACHIEVEMENTS[id], 11)
- else:
-  return difficulty > 0
+	if difficulty == 10:
+		return id in character_loader.added_characters or AchievementManager.has_achievement(CHARACTER_DIFFICULTY_ACHIEVEMENTS[id], 11)
+	else:
+		return difficulty > 0

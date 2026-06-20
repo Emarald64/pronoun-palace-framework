@@ -44,7 +44,7 @@ func run_main_menu_additions(main_menu:MainMenu):
 	
 	var icon_container_scroll=ScrollContainer.new()
 	icon_container_scroll.custom_minimum_size.x=160
-	icon_container_scroll.get_h_scroll_bar().custom_maximum_size.y=2
+	icon_container_scroll.get_h_scroll_bar().custom_maximum_size.y=4
 	icon_container_scroll.vertical_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
 	icon_container_scroll.add_theme_constant_override(&"scrollbar_v_separation",-4)
 	
@@ -116,3 +116,9 @@ func _ready() -> void:
 func load_save_data(data: Dictionary):
 	character_loader.save_data=data.get("character",{})
 	character_loader.save_data.merge(character_loader.default_save_data)
+
+
+func get_save_data() -> Dictionary:
+	return {
+		character=character_loader.save_data
+	}

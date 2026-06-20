@@ -2,7 +2,7 @@ extends DifficultySelector
 
 var character_loader=load("res://mods/framework/character_loader.gd")
 
-var character:String=Globals.CHARACTERS.LEXICOGRAPHER
+var current_character:String=Globals.CHARACTERS.LEXICOGRAPHER
 
 func set_character(character: String):
 	var target_difficulty
@@ -13,7 +13,7 @@ func set_character(character: String):
 		if not Globals.is_difficulty_unlocked(target_difficulty, character):
 			target_difficulty = 0
 	
-	self.character=character
+	current_character=character
 	select_difficulty(target_difficulty)
 
 	for icon in icon_selector.icons:
@@ -24,8 +24,8 @@ func set_character(character: String):
 func select_difficulty(difficulty: int):
 	selected_difficulty = difficulty
 	update_labels()
-	if character in character_loader.added_characters:
-		character_loader.save_data.selected_character_difficulty[character]=difficulty
+	if current_character in character_loader.added_characters:
+		character_loader.save_data.selected_character_difficulty[current_character]=difficulty
 		get_node("../CharacterSelector")._on_difficulty_updated()
 	else:
 		selected.emit()

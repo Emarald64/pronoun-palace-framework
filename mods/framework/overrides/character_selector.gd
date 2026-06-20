@@ -65,8 +65,18 @@ func get_character_difficulty(character: String) -> int:
 	else:
 		return SaveManager.get_save().data.selected_character_difficulty[character]
 
-#func select_character(id: String):
- #selected_character = id
- #selected_is_unlocked = Globals.is_character_unlocked(id)
- #update_character()
- #selected.emit()
+func _on_start_appearing() -> void :
+	if not icons_instantiated:
+		instantiate_icons()
+
+	update_character_icons()
+
+	selected_character = SaveManager.get_save_data().selected_character
+	if (selected_character not in CHARACTERS.values() and selected_character not in character_loader.added_characters) or not Globals.is_character_unlocked(selected_character):
+		selected_character = CHARACTERS.LEXICOGRAPHER
+
+	icon_selector.set_initial_selection(CHAR_ORDER.find(selected_character))
+	select_character(selected_character)
+	await get_tree().process_frame
+	if selected_character in character_loader.added_characters:
+		icon_selector.get_child(1).ensure_control_visible(icon_selector.icons[5+character_loader.added_characters.find(selected_character)])
