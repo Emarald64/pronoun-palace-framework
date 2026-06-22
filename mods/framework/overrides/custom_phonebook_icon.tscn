@@ -8,3 +8,5 @@ script = ExtResource("2_rb83m")
 
 [node name="Sprite2D" parent="." index="0" unique_id=1673640778]
 texture = null
+hframes = 1
+vframes = 1

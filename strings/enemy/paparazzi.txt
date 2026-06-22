@@ -1,5 +1,7 @@
 :name:
-    Paparazzi
+	Paparazzi
 
 :phonebook:
-    Paparzzi phonebook
+	Nothing kills a movement quite like bad PR.
+
+	Members of the Bureau of Public Relations are deployed to protests and rallies to encite negative reactions from the participants andtake photographs of the fallout. The Party freely employs these images in extensive mudslinging campaigns aimed to destroy any credibility these organizations may have had and ensure that only the creased, rosy faces are remembered.

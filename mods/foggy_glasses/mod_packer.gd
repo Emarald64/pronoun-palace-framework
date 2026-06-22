@@ -14,6 +14,7 @@ var files: Array[String] = [
 	"res://source/enemies/paparazzi.gd",
 	"res://source/enemies/paparazzi.tscn",
 	"res://strings/enemy/paparazzi.txt",
+	"res://mods/foggy_glasses/paparazzi.png",
 
 	"res://mods/foggy_glasses/dew_jubilist_icons.png",
 	"res://arte/characters/dew_jubilist.png",
