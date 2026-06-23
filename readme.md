@@ -1,7 +1,10 @@
 # Pronoun Palace Framework
 
 The Foggy Glasses are included in this repo as an example of a mod which uses the framework.   
+It adds the spell foggy glasses, the enemy paparazzi, and the character Dew Jubilist  
 The foggy glasses are based off the Dyslexic character by [Soƒti](https://bsky.app/profile/softisafe.bsky.social)
+
+The .pck files for the framework and foggy glasses mods are not included when cloning the repo. In the editor, the mod_loader will not run the scripts for these mods without a .pck file in `res://mod_packs/framework` or `res://mod_packs/foggy_glasses` respectively. Either download them from the realeases page or package them yourself by running the `mod_packer.gd` script in the `mods/framework` and `mods/foggy_glasses` folders
 
 > [!NOTE]
 > The framework requires a specific version of Pronoun Palace to work. The version will be shown on the release page and you will see a popup when starting the game on an unsupported version
