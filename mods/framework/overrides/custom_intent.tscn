@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://44mse4m4gjv5"]
+
+[ext_resource type="PackedScene" uid="uid://mfou86kmoucf" path="res://source/ui/intents/intent.tscn" id="1_lh15o"]
+[ext_resource type="Script" uid="uid://befb34m3q6bmg" path="res://mods/framework/overrides/custom_intent.gd" id="2_rfmbo"]
+
+[node name="Intent" unique_id=132339065 instance=ExtResource("1_lh15o")]
+script = ExtResource("2_rfmbo")

@@ -2,9 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://dt2be1wikfttk" path="res://source/main.tscn" id="1_kt8xo"]
 [ext_resource type="Script" uid="uid://d1x1pd50orhu0" path="res://mods/framework/overrides/custom_main.gd" id="2_26mio"]
+[ext_resource type="Script" uid="uid://chnbvx442f1xu" path="res://mods/framework/overrides/intent_container.gd" id="3_syf14"]
 
 [node name="Main" unique_id=180122661 instance=ExtResource("1_kt8xo")]
 script = ExtResource("2_26mio")
+
+[node name="EnemyIntentContainer" parent="GameUILayer" parent_id_path=PackedInt32Array(1903357470) index="6" unique_id=112413146]
+script = ExtResource("3_syf14")
+realign_with_word_length = false
 
 [editable path="GameUILayer/TileBoard"]
 [editable path="MenuLayer/PauseMenu/ResumeButton"]
