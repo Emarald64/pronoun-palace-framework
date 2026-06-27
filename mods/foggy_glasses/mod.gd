@@ -2,24 +2,29 @@ extends Mod
 
 var remove_other_enemies:=true
 var exisiting_enemy_pool:Array[String]
-var enemy_loader=load("res://mods/framework/enemy_loader.gd")
-var framework=load("res://mods/framework/mod.gd")
+var enemy_loader
+var framework
+
+func generate_mod_settings_page()->Control:
+	var mod_settings_page=load("res://mods/framework/mod_options.tscn").instantiate()
+	mod_settings_page.options=[
+		{name="Remove Other Enemies",type=Variant.Type.TYPE_BOOL},
+		{name="test selector",type=Variant.Type.TYPE_STRING,options=["option1","option2"]}
+		]
+	mod_settings_page.option_changed.connect(_on_options_updated)
+	mod_settings_page.get_setting_method=get_option_value
+	mod_settings_page.set_layout()
+	return mod_settings_page
 
 func _ready() -> void:
 	if ResourceLoader.exists("res://mods/framework/mod.gd"):
+		enemy_loader=load("res://mods/framework/enemy_loader.gd")
+		framework=load("res://mods/framework/mod.gd")
 		framework.add_spell("foggy_glasses",1000.0,"support")
 		
 		var mod_settings_menu=load("res://mods/framework/mod_settings_menu.gd")
 		
-		var mod_settings_page=load("res://mods/framework/mod_options.tscn").instantiate()
-		mod_settings_page.options=[
-			{name="Remove Other Enemies",type=Variant.Type.TYPE_BOOL},
-			{name="test selector",type=Variant.Type.TYPE_STRING,options=["option1","option2"]}
-			]
-		mod_settings_page.option_changed.connect(_on_options_updated)
-		mod_settings_page.get_setting_method=get_option_value
-		mod_settings_page.set_layout()
-		mod_settings_menu.add_menu("Foggy Glasses Mod",mod_settings_page)
+		mod_settings_menu.add_menu("Foggy Glasses Mod",generate_mod_settings_page)
 		
 		var character_loader=load("res://mods/framework/character_loader.gd")
 		character_loader.add_character("dew_jubilist",Globals.SPELLS.VERIFICATION_CAN,load("res://mods/foggy_glasses/dew_jubilist_icons.png"))
@@ -32,9 +37,11 @@ func update_remove_other_enemies():
 	
 	if remove_other_enemies:
 		enemy_loader.enemy_pools[0][0].clear()
-		enemy_loader.add_enemy("paparazzi",0,0,"res://mods/foggy_glasses/paparazzi.png")
-	elif "paparazzi" not in enemy_loader.enemy_pools[0][0]:
-		enemy_loader.add_enemy("paparazzi",0,0,"res://mods/foggy_glasses/paparazzi.png")
+	else:
+		for enemy in Enemies.POOLS[0][0].duplicate():
+			if enemy not in enemy_loader.enemy_pools[0][0]:
+				enemy_loader.enemy_pools[0][0].append(enemy)
+	enemy_loader.add_enemy("paparazzi",0,0,"res://mods/foggy_glasses/paparazzi.png")
 
 func _on_options_updated(option_name:String,value):
 	match option_name:
@@ -47,7 +54,7 @@ func get_option_value(option_name:String):
 		"Remove Other Enemies":
 			return remove_other_enemies
 		"test selector":
-			return "option1"
+			return "option2"
 
 func load_save_data(data: Dictionary) -> void:
 	remove_other_enemies=data.remove_other_enemies

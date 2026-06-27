@@ -61,8 +61,7 @@ func run_main_menu_additions(main_menu:MainMenu):
 	
 	var add_scroll_container=func ():
 		icon_selector.add_child(icon_container_scroll)
-		icon_selector.remove_child(icon_container)
-		icon_container_scroll.add_child(icon_container)
+		icon_container.reparent(icon_container_scroll)
 		icon_selector.move_child(icon_container_scroll,1)
 	
 	if icon_selector.is_node_ready():
