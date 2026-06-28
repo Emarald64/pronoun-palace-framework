@@ -128,9 +128,37 @@ func get_gender():
 6. In your mod script call load("res://mods/framework/character_loader.gd").add_character("char_id","starting_spell_id").  
 Note that character spells do not need to be registered seperatly with the framework and should have the tag of their character's id in the spell's strings file
 7. (optional) Make icons for your character. They should be 34x34 each and be in a spritesheet stacked verticlly with the trans version on the bottom. Load it and put it as the third argumant for the add_character function
+
 ### Nobody Fight. 
 
 By default custom characters will use the lexicographer's nobody fight  
 If you want a custom one follow the guide the create an enemy. you will most likely want to inherit nobody's scene `res://source/enemies/nobody.tscn` and extend it's script `res://source/enemies/nobody.gd`
 
 Put the path the the custom nobody scene as the fourth argument to the add character function
+
+## Creating a custom mod options menu
+
+> This guide will assume that you are using the framework's mod menu template
+
+1 Create functions that will be called to get and set the options in the menu.\
+	For the setter, The first argument is the name of the option and the second is the new value of the option.\
+	For the getter, the only argument is the name of the option and it should return the current value of the option
+
+2 Create a function which create the mod menu
+	a Load and instantiate the mod options template `res://mods/framework/mod_options.tscn`
+	b Set the options property of the template to an array of dictionaries. The dictionaries should have the following format\
+	```
+	{
+		name="Name of option"
+		type=Variant.Type.TYPE_BOOL # the type of the option, only boolean ond string options are supported now
+		options=["option1","option2"] # if the type is a string, the options for the string picker
+	}
+	```
+	
+	c connect the option_changed signal of the template to your option setter method
+	d set the `get_setting_method` property of the template to your option setter method
+	e call set_layout on the template, then return the template
+
+You can also look at the `generate_mod_settings_page` function in the foggy_glasses' mod.gd
+
+You are expected to save the options for your mod in your own mod's save data, the framework will not save them for you.
