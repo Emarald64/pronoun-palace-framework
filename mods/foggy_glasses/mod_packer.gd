@@ -8,13 +8,16 @@ var files: Array[String] = [
 	"res://strings/spell/foggy_glasses.txt",
 	"res://source/spells/foggy_glasses.gd",
 
-	"res://source/enemies/paparazzi.tscn",
-	"res://arte/enemies/paparazzi.png",
-	"res://source/enemies/sprites/paparazzi_sprite.tscn",
-	"res://source/enemies/paparazzi.gd",
-	"res://source/enemies/paparazzi.tscn",
-	"res://strings/enemy/paparazzi.txt",
-	"res://mods/foggy_glasses/paparazzi.png",
+	"res://source/enemies/aqua.tscn", # aqua enemy scene
+	"res://source/enemies/aqua.gd", # aqua enemy script
+	"res://arte/enemies/aqua_body.png", # aqua body sprite
+	"res://arte/enemies/aqua_knife_ready.png", # aqua held knife sprite
+	"res://source/enemies/sprites/aqua_sprite.tscn", # aqua sprite scene
+	"res://source/enemies/sprites/aqua_sprite.gd", # aqua sprite script
+	"res://strings/enemy/aqua.txt", # aqua strings
+	"res://mods/foggy_glasses/aqua/AquaKnifeProjectile.tscn", #aqua knife projectile scene
+	"res://mods/foggy_glasses/aqua/aqua_knife_projectile.gd", # aqua knife projectile script
+	"res://mods/foggy_glasses/aqua/miniface_aqua.png", # aqua phonebook icon
 
 	"res://mods/foggy_glasses/dew_jubilist_icons.png",
 	"res://arte/characters/dew_jubilist.png",

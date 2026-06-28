@@ -135,8 +135,6 @@ script = ExtResource("2_p08b3")
 
 [node name="Sprite" type="Node2D" parent="." index="0" unique_id=704011768]
 texture_filter = 1
-position = Vector2(8.388946, 0)
-scale = Vector2(0.9501939, 1.0498061)
 
 [node name="Sprite" type="Sprite2D" parent="Sprite" index="0" unique_id=1395428205 groups=["make_smoll"]]
 texture_filter = 1

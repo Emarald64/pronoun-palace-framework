@@ -1,8 +1,10 @@
 # Pronoun Palace Framework
 
 The Foggy Glasses are included in this repo as an example of a mod which uses the framework.   
-It adds the spell foggy glasses, the enemy paparazzi, and the character Dew Jubilist  
+It adds the spell foggy glasses, the enemy Aqua, and the character Dew Jubilist  
 The foggy glasses are based off the Dyslexic character by [Soƒti](https://bsky.app/profile/softisafe.bsky.social)
+
+If you need help learning how to mod pronoun palace, check out the guide I made: (How to make Pronoun Palace mods)[https://gist.github.com/Emarald64/65943d629b6ff5fd08a2d8022397aacb] or ask me in the \#modding channel in the Pronoun Palace Discord. 
 
 The .pck files for the framework and foggy glasses mods are not included when cloning the repo. In the editor, the mod_loader will not run the scripts for these mods without a .pck file in `res://mod_packs/framework` or `res://mod_packs/foggy_glasses` respectively. Either download them from the realeases page or package them yourself by running the `mod_packer.gd` script in the `mods/framework` and `mods/foggy_glasses` folders
 
@@ -54,16 +56,16 @@ optional:
 	Enemy Name
 
 :phonebook:
-	Enemy phonebook
+	Enemy phonebook entry
 ```
-
-(as of now the phonebook is not altered but that may be in a future update)
 
 3. Create a scene and script for your enemy in `res://source/enemies` named enemy_id.tscn and enemy_id.gd.
 The enemy script should extend Enemy. Look at the vanilla enemies and the paparazzi scripts for examples. Additionally, diffrently from vanilla enemies, you need to define _get_health_scaling() which returns an array of length 4 for health values at diffrent dificulties.
 4. Create the scene for your enemy sprite `res://source/enemies/sprites/enemy_id_sprite.tscn`. It should be an inherited scene of `res://source/battle_unit_sprite.tscn` 
 The AnimPlayer must have a flinch animation and should preferably have a dying and die animation as well as any animations for attacks
 5. In your mod script call `load("res://mods/framework/enemy_loader.gd").add_enemy("enemy_id",act,floor)` replacing act and floor with the act and postition in the act that your enemy will appear in respecively.
+
+Although it is no longer included in the mod, the repo still contains an example enemy named paparazzi for refrence
 
 ## How to add your own character
 
