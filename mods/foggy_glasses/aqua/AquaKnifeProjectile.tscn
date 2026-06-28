@@ -9,5 +9,5 @@ poof_color = "WOOD"
 look_at_direction = false
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=667972135]
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_lleje")

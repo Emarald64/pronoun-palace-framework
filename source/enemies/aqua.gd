@@ -40,22 +40,22 @@ func display_intent():
 		add_intent("slash_wood", {count = moves.slash_tiles.count})
 
 func get_knife_throw_pos()->Vector2:
-	return global_position+(Vector2(-5,-29)/ 2 if sprite.smol else 1)
+	return global_position+(Vector2(-5,-29)/ (2 if sprite.smol else 1))
 
 func knife_throw():
 	num_projectiles=moves.knife_throw.count
-	for i in moves.knife_throw.count:
+	for i in moves.knife_throw.count/2:
 		anim_player.play("knife throw")
 
 		await sprite.hit
-		
 		AudioManager.play_sound(swing_sound,1.5)
-		var projectile:ArcingProjectile=knife_projectile_scene.instantiate()
-		projectile.final_impact=player.get_projectile_target()
-		main.add_child(projectile)
-		projectile.launch(get_knife_throw_pos(),projectile.final_impact-Vector2.from_angle(randf_range(PI/6,5*PI/6))*80,randf_range(120,160))
-		projectile.impacted.connect(_on_projectile_impacted)
-		projectile.impacted.connect(hit_player.bind(moves.knife_throw.damage, i==moves.knife_throw.count-1))
+		for c in 2:
+			var projectile:ArcingProjectile=knife_projectile_scene.instantiate()
+			projectile.final_impact=player.get_projectile_target()
+			main.add_child(projectile)
+			projectile.launch(get_knife_throw_pos(),projectile.final_impact-Vector2.from_angle(randf_range(PI/6,5*PI/6))*80,120+(40*c)+randf_range(0,20))
+			projectile.impacted.connect(_on_projectile_impacted)
+			projectile.impacted.connect(hit_player.bind(moves.knife_throw.damage, i==moves.knife_throw.count-1 && c==1))
 		await anim_player.animation_finished
 		
 	await all_projectiles_impacted

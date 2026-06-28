@@ -23,7 +23,7 @@ func _ready():
 ## name: name of the option, used for display and option_changed signal
 ## type: an int from Varient.Type, only supports booleans and strings now
 ## options: if type is string, an array of strings for the switcher 
-func set_layout()->void:
+func set_layout():
 	for option in options:
 		var setting:Setting
 		match option.type:
@@ -38,6 +38,7 @@ func set_layout()->void:
 		setting.setting_name=option.name
 		setting.set_setting_methods(get_setting_method.bind(option.name),_on_option_changed.bind(option.name))
 		add_child(setting)
+	return self
 		
 func _on_option_changed(value,_name:String):
 	option_changed.emit(_name,value)

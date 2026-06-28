@@ -11,7 +11,7 @@ func _run() -> void :
 	var packer: = PCKPacker.new()
 	packer.pck_start("res://mod_packs/framework/framework.pck")
 	var mod_files=Util.get_file_paths_recursive("res://mods/framework")
-	print(mod_files+additional_files)
+	#print(mod_files+additional_files)
 	for file in mod_files+additional_files:
 		if ResourceLoader.exists(file):
 			var loaded: Resource = ResourceLoader.load(file)
