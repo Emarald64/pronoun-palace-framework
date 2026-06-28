@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://c8tuo2qpdso7p"]
+
+[ext_resource type="PackedScene" uid="uid://dmg180a1myio" path="res://source/battle_unit/battle_unit_sprite.tscn" id="1_ph3qd"]
+[ext_resource type="Animation" uid="uid://gtyy16cm4mfw" path="res://anim/die.res" id="2_2o78j"]
+[ext_resource type="Texture2D" uid="uid://daaisrie81531" path="res://arte/enemies/aqua_body.png" id="2_63rc5"]
+[ext_resource type="Script" uid="uid://dtt4yx6njcg6q" path="res://source/enemies/sprites/aqua_sprite.gd" id="2_p08b3"]
+[ext_resource type="Texture2D" uid="uid://p7iejfb025u8" path="res://arte/enemies/aqua_knife_ready.png" id="3_63rc5"]
+[ext_resource type="Animation" uid="uid://dgoxvwe70vdkv" path="res://anim/dying.res" id="3_ph3qd"]
+[ext_resource type="Animation" uid="uid://ppxdd2otlmaq" path="res://anim/flinch.res" id="4_63rc5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6585"]
+size = Vector2(37, 33)
+
+[sub_resource type="Animation" id="Animation_p08b3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/knife:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite/knife:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_6yycy"]
+resource_name = "idle"
+length = 1.6
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_mubar"]
+resource_name = "knife throw"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 9, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/knife:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite/knife:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:event")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["hit"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mubar"]
+_data = {
+&"RESET": SubResource("Animation_p08b3"),
+&"die": ExtResource("2_2o78j"),
+&"dying": ExtResource("3_ph3qd"),
+&"flinch": ExtResource("4_63rc5"),
+&"idle": SubResource("Animation_6yycy"),
+&"knife throw": SubResource("Animation_mubar")
+}
+
+[node name="AquaSprite" unique_id=1356876798 instance=ExtResource("1_ph3qd")]
+script = ExtResource("2_p08b3")
+
+[node name="Sprite" type="Node2D" parent="." index="0" unique_id=704011768]
+texture_filter = 1
+position = Vector2(8.388946, 0)
+scale = Vector2(0.9501939, 1.0498061)
+
+[node name="Sprite" type="Sprite2D" parent="Sprite" index="0" unique_id=1395428205 groups=["make_smoll"]]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_63rc5")
+offset = Vector2(0, -14.5)
+hframes = 5
+vframes = 2
+frame = 2
+
+[node name="knife" type="Sprite2D" parent="Sprite" index="1" unique_id=1459837104 groups=["make_smoll"]]
+visible = false
+show_behind_parent = true
+scale = Vector2(2, 2)
+texture = ExtResource("3_63rc5")
+offset = Vector2(0, -23.5)
+hframes = 3
+
+[node name="HitMarker" parent="." index="1" unique_id=1651044017]
+visible = true
+position = Vector2(-22, -24)
+
+[node name="IntentMarker" parent="." index="2" unique_id=444731721]
+position = Vector2(0, -83)
+
+[node name="BleedArea" parent="." index="3" unique_id=1768612656]
+position = Vector2(-12, -28)
+
+[node name="BleedZone" parent="BleedArea" index="0" unique_id=659443964]
+visible = true
+
+[node name="HoverArea" parent="." index="4" unique_id=1946856293]
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" parent="HoverArea" index="0" unique_id=2067959912]
+position = Vector2(-0.5, -16.5)
+shape = SubResource("RectangleShape2D_a6585")
+
+[node name="AnimPlayer" parent="." index="5" unique_id=1026464875]
+libraries/ = SubResource("AnimationLibrary_mubar")
+autoplay = &"idle"

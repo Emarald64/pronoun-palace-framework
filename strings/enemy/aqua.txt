@@ -1,0 +1,5 @@
+:name:
+	Aqua
+
+:phonebook:
+	A girl without a lick of patience. Enjoys trying new things.

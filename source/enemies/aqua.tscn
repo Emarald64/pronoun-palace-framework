@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://q641d3h3re0e"]
+
+[ext_resource type="Script" uid="uid://bkufsixxrkkds" path="res://source/enemies/aqua.gd" id="1_ctysu"]
+[ext_resource type="PackedScene" uid="uid://c8tuo2qpdso7p" path="res://source/enemies/sprites/aqua_sprite.tscn" id="2_7kvdu"]
+
+[node name="Aqua" type="Node2D" unique_id=1866350883]
+script = ExtResource("1_ctysu")
+gender = 2
+
+[node name="Sprite" parent="." unique_id=1356876798 instance=ExtResource("2_7kvdu")]

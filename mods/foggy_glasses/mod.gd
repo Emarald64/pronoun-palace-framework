@@ -9,7 +9,7 @@ func generate_mod_settings_page()->Control:
 	var mod_settings_page=load("res://mods/framework/mod_options.tscn").instantiate()
 	mod_settings_page.options=[
 		{name="Remove Other Enemies",type=Variant.Type.TYPE_BOOL},
-		{name="test selector",type=Variant.Type.TYPE_STRING,options=["option1","option2"]}
+		{name="Smol Aqua",type=Variant.Type.TYPE_BOOL}
 		]
 	mod_settings_page.option_changed.connect(_on_options_updated)
 	mod_settings_page.get_setting_method=get_option_value
@@ -28,6 +28,10 @@ func _ready() -> void:
 		
 		var character_loader=load("res://mods/framework/character_loader.gd")
 		character_loader.add_character("dew_jubilist",Globals.SPELLS.VERIFICATION_CAN,load("res://mods/foggy_glasses/dew_jubilist_icons.png"))
+		
+		# add custom intent for aqua
+		var custom_intent=load("res://mods/framework/overrides/custom_intent.gd")
+		custom_intent.custom_intent_icons["slash_wood"]=load("res://mods/foggy_glasses/pronounpalace-slashtiletype-px.png")
 	else:
 		push_error("foggy glasses mod requires the spell framework to work. Download it here: https://github.com/Emarald64/pronoun-palace-framework")
 
@@ -41,24 +45,32 @@ func update_remove_other_enemies():
 		for enemy in Enemies.POOLS[0][0].duplicate():
 			if enemy not in enemy_loader.enemy_pools[0][0]:
 				enemy_loader.enemy_pools[0][0].append(enemy)
-	enemy_loader.add_enemy("paparazzi",0,0,"res://mods/foggy_glasses/paparazzi.png")
+	enemy_loader.add_enemy("aqua",0,0,"res://mods/foggy_glasses/aqua/miniface_aqua.png")
 
 func _on_options_updated(option_name:String,value):
 	match option_name:
 		"Remove Other Enemies":
 			remove_other_enemies=value
 			update_remove_other_enemies()
+		"Smol Aqua":
+			load("res://source/enemies/sprites/aqua_sprite.gd").smol=value
 
 func get_option_value(option_name:String):
 	match option_name:
 		"Remove Other Enemies":
 			return remove_other_enemies
+		"Smol Aqua":
+			return load("res://source/enemies/sprites/aqua_sprite.gd").smol
 		"test selector":
-			return "option2"
+			return "option1"
 
 func load_save_data(data: Dictionary) -> void:
-	remove_other_enemies=data.remove_other_enemies
+	remove_other_enemies=data.get("remove_other_enemies",false)
+	load("res://source/enemies/sprites/aqua_sprite.gd").smol=data.get("smol_aqua",false)
 	update_remove_other_enemies()
 
 func get_save_data() -> Dictionary:
-	return {remove_other_enemies=remove_other_enemies}
+	return {
+		remove_other_enemies=remove_other_enemies,
+		smol_aqua=load("res://source/enemies/sprites/aqua_sprite.gd").smol,
+		}

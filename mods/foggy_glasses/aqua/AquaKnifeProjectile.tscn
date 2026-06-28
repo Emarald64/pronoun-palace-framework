@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bmfvsbpk8w1wb"]
+
+[ext_resource type="Script" uid="uid://mxi2jd6sd04a" path="res://mods/foggy_glasses/aqua/aqua_knife_projectile.gd" id="1_lpwuh"]
+[ext_resource type="Texture2D" uid="uid://cceqjf408gdt7" path="res://mods/foggy_glasses/aqua/knife_spin.png" id="2_lleje"]
+
+[node name="AquaKnifeProjectile" type="CharacterBody2D" unique_id=1762024564]
+script = ExtResource("1_lpwuh")
+poof_color = "WOOD"
+look_at_direction = false
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=667972135]
+scale = Vector2(2, 2)
+texture = ExtResource("2_lleje")

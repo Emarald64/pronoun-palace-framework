@@ -112,7 +112,7 @@ func _ready() -> void:
 	print("loaded spell framework")
 	#print("has globals: "+str(ProjectSettings.has_setting("autoload/Globals")))
 	#print("globals path: "+str(ProjectSettings.get_setting("autoload/Globals")))
-	if pronoun_palace_version!=ProjectSettings.get_setting("application/config/version"):
+	if not OS.is_debug_build() and pronoun_palace_version!=ProjectSettings.get_setting("application/config/version"):
 		push_warning("The version of the game you are running ("+ProjectSettings.get_setting("application/config/version")+") may be incompatible with this version of the framework for "+pronoun_palace_version+". proceed at you own risk")
 		var popup=load("res://mods/framework/incompatible_version_popup.tscn").instantiate()
 		popup.get_node("Label").text="The version of the game you are running ("+ProjectSettings.get_setting("application/config/version")+")\nmay be incompatible with this version of the framework for "+pronoun_palace_version+"\nproceed at you own risk"
