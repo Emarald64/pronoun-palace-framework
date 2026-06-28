@@ -18,6 +18,12 @@ var files: Array[String] = [
 	"res://mods/foggy_glasses/aqua/AquaKnifeProjectile.tscn", #aqua knife projectile scene
 	"res://mods/foggy_glasses/aqua/aqua_knife_projectile.gd", # aqua knife projectile script
 	"res://mods/foggy_glasses/aqua/miniface_aqua.png", # aqua phonebook icon
+	"res://mods/foggy_glasses/aqua/knife_spin.png",
+	"res://mods/foggy_glasses/aqua/knife_fly.png",
+	"res://mods/foggy_glasses/aqua/swing.wav",
+	"res://mods/foggy_glasses/aqua/swing.wav.import",
+	"res://mods/foggy_glasses/aqua/miniboss_new_section_idea_wip.ogg", #aqua fight musi
+	"res://mods/foggy_glasses/aqua/miniboss_new_section_idea_wip.ogg.import", #aqua fight musi
 
 	"res://mods/foggy_glasses/dew_jubilist_icons.png",
 	"res://arte/characters/dew_jubilist.png",
