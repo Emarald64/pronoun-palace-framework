@@ -56,7 +56,7 @@ func knife_throw():
 			main.add_child(projectile)
 			projectile.launch(get_knife_throw_pos(),projectile.final_impact-Vector2.from_angle(randf_range(PI/6,5*PI/6))*80,120+(40*c)+randf_range(0,20))
 			projectile.impacted.connect(_on_projectile_impacted)
-			projectile.impacted.connect(hit_player.bind(moves.knife_throw.damage, i==moves.knife_throw.count-1 && c==1))
+			projectile.impacted.connect(hit_player.bind(moves.knife_throw.damage, i==moves.knife_throw.count-1))
 		await anim_player.animation_finished
 		
 	await all_projectiles_impacted

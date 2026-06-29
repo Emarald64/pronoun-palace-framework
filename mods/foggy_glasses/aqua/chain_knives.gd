@@ -59,7 +59,7 @@ func _physics_process(delta: float) -> void:
 	past_rotations.push_back(current_rotation)
 		
 	if not animating:
-		current_rotation=get_angle_to(get_global_mouse_position())
+		#current_rotation=get_angle_to(get_global_mouse_position())
 		for i in len(knives):
 			knives[i].rotation=past_rotations[-1-(i*time_skipped)]+(PI/2)
 			knives[i].position=Vector2.from_angle(past_rotations[-1-(i*time_skipped)])*((i*(spacing-spacing_decrease*i))+start_spacing)
