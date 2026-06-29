@@ -16,7 +16,7 @@ const time_skipped=4
 var past_rotations:=PackedFloat64Array()
 var knives:Array[Sprite2D]=[]
 var animating:=false
-var smoll:=false
+#var smol:=false
 
 @export var y_limit:=-205.0
 @export var limit_floor:=false
@@ -27,11 +27,12 @@ signal hit(i:int)
 func _ready() -> void:
 	past_rotations.resize(knife_count*time_skipped)
 	knives.resize(knife_count)
+	var smol=load("res://source/enemies/sprites/aqua_sprite.gd").smol
 	for i in knife_count:
 		var sprite=Sprite2D.new()
 		sprite.texture=knife_texture
 		sprite.visible=false
-		if not smoll:
+		if not smol:
 			sprite.scale=Vector2(1.5,1.5)
 		add_child(sprite)
 		knives[i]=(sprite)
