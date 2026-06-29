@@ -25,6 +25,12 @@ var files: Array[String] = [
 	"res://mods/foggy_glasses/aqua/miniboss_new_section_idea_wip.ogg", #aqua fight musi
 	"res://mods/foggy_glasses/aqua/miniboss_new_section_idea_wip.ogg.import", #aqua fight musi
 	
+	"res://mods/foggy_glasses/aqua/chain_knives.tscn",
+	"res://mods/foggy_glasses/aqua/chain_knives.gd",
+	"res://mods/foggy_glasses/aqua/chain_knives_pair.gd",
+	"res://mods/foggy_glasses/aqua/chainswing_arms.png",
+	"res://mods/foggy_glasses/aqua/chainswing_arms.gd",
+	
 	"res://mods/foggy_glasses/pronounpalace-slashtiletype-px.png", #wooden slash intent icon
 	"res://strings/intent/slash_wood.txt", #wood slash intent strings
 	

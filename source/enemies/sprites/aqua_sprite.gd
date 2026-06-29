@@ -1,3 +1,4 @@
+@tool
 extends BattleUnitSprite
 
 static var smol:=false
@@ -11,7 +12,7 @@ func _ready() -> void:
 		bleed_area.scale=Vector2.ONE
 
 func advance_phonebook_animation() -> void :
-	const animations: = ["knife throw","flinch"]
+	const animations: = ["knife throw","chainknives"]
 
 	var animation_index: int = 0
 	if playing_phonebook_animation in animations:

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bp0s4bmivy58y"]
+
+[ext_resource type="Script" uid="uid://d31ud68ga48g1" path="res://mods/foggy_glasses/aqua/chain_knives.gd" id="1_1ufsk"]
+
+[node name="chain knives" type="Node2D" unique_id=1995329432]
+script = ExtResource("1_1ufsk")
+top = true

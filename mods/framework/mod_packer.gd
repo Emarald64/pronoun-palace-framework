@@ -3,7 +3,8 @@ extends EditorScript
 
 
 var additional_files: PackedStringArray = [
-	"res://source/spell/spell_data.gd"
+	"res://source/spell/spell_data.gd",
+	"res://strings/menu/settings.txt"
 ]
 
 
