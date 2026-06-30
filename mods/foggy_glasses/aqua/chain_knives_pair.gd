@@ -19,8 +19,8 @@ func _ready():
 		for child in get_children():
 			child.reparent(current_scene)
 			chains.append(child)
-	for i in 2:
-		chains[i].hit.connect(hit.emit.bind(i==0))
+		for i in 2:
+			chains[i].hit.connect(hit.emit.bind(i==0))
 
 func spawn_animation():
 	for child in chains:
