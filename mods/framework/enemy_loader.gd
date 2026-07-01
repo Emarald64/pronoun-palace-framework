@@ -1,5 +1,6 @@
-extends Object
+class_name EnemyLoader extends Object
 
+## Replacement enemy poolsm used instead of the vanilla ones
 static var enemy_pools:=Enemies.POOLS.duplicate_deep()
 static var shadows:=Enemies.SHADOWS.duplicate()
 static var custom_phonebook_icons:Dictionary[String,String]={}

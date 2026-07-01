@@ -1,4 +1,4 @@
-extends Object
+class_name SpellLoader extends Object
 
 static var spell_pool:Dictionary
 static var spell_categories:Dictionary=Globals.SPELL_CATEGORIES.duplicate(true)

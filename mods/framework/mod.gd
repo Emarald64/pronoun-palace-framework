@@ -1,9 +1,9 @@
-class_name SpellFramework extends Mod
+class_name Framework extends Mod
 
 const pronoun_palace_version="1.1.2"
 
-static var spell_loader=load("res://mods/framework/spell_loader.gd")
-static var character_loader=load("res://mods/framework/character_loader.gd")
+#static var spell_loader=load("res://mods/framework/spell_loader.gd")
+#static var character_loader=load("res://mods/framework/character_loader.gd")
 static var mod_settings_menu:Control
 
 static var mod_settings_pages:Dictionary[String,Control]={}
@@ -11,12 +11,14 @@ static var mod_settings_pages:Dictionary[String,Control]={}
 ## Adds a spell to the list of spells that can appear randomly
 ## A higher weight makes the spell appear more often
 ## The catagory is used to determine whether it it will appear in the jubilist's boxes 
+## @deprecated: call [method SpellLoader.add_spell] instead
 static func add_spell(id:String,weight:float=1.0,catagory=null)->void:
-	push_warning("calling add_spell through mod.gd is depriccated, please call add_spell through spell_loader now")
-	spell_loader.add_spell(id,weight,catagory)
-	
+	push_warning("calling add_spell through mod.gd is deprecated, please call add_spell through spell_loader now")
+	SpellLoader.add_spell(id,weight,catagory)
+
+## @deprecated: call add_vanillia_spells through spell_loader
 static func add_vanillia_spells()->void:
-	spell_loader.add_vanillia_spells()
+	SpellLoader.add_vanillia_spells()
 
 func _on_scene_change()->void:
 	var current_scene=get_tree().current_scene
@@ -110,8 +112,6 @@ func _ready() -> void:
 	if current_scene is MainMenu:
 		run_main_menu_additions(current_scene)
 	print("loaded spell framework")
-	#print("has globals: "+str(ProjectSettings.has_setting("autoload/Globals")))
-	#print("globals path: "+str(ProjectSettings.get_setting("autoload/Globals")))
 	if not OS.is_debug_build() and pronoun_palace_version!=ProjectSettings.get_setting("application/config/version"):
 		push_warning("The version of the game you are running ("+ProjectSettings.get_setting("application/config/version")+") may be incompatible with this version of the framework for "+pronoun_palace_version+". proceed at you own risk")
 		var popup=load("res://mods/framework/incompatible_version_popup.tscn").instantiate()
@@ -126,11 +126,11 @@ func _ready() -> void:
 	#print(Game.get_script())
 
 func load_save_data(data: Dictionary):
-	character_loader.save_data=data.get("character",{})
-	character_loader.save_data.merge(character_loader.default_save_data)
+	CharacterLoader.save_data=data.get("character",{})
+	CharacterLoader.save_data.merge(CharacterLoader.default_save_data)
 
 
 func get_save_data() -> Dictionary:
 	return {
-		character=character_loader.save_data
+		character=CharacterLoader.save_data
 	}

@@ -62,7 +62,6 @@ func _run() -> void :
 				config.load(file + ".import")
 				var imported_path=config.get_value("remap","path")
 				packer.add_file(imported_path, imported_path)
-				#print(imported_path)
 			else:
 				packer.add_file(file, file)
 		else:

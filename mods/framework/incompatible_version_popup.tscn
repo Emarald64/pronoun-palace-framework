@@ -3,6 +3,7 @@
 [node name="Incompatible Version Popup" type="AcceptDialog" unique_id=2096030662]
 oversampling_override = 1.0
 title = "Incompatible Version"
+position = Vector2i(0, 36)
 size = Vector2i(200, 107)
 visible = true
 content_scale_size = Vector2i(5, 5)

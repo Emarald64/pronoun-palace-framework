@@ -1,4 +1,4 @@
-extends "res://source/ui/intents/intent.gd"
+class_name CustomIntent extends "res://source/ui/intents/intent.gd"
 
 static var custom_intent_icons:Dictionary[String,Texture2D]={}
 static var custom_status_intent_icons:Dictionary[String,Texture2D]={}

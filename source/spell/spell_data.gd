@@ -1,4 +1,5 @@
-class_name SpellData extends RefCounted
+#class_name SpellData 
+extends RefCounted
 
 
 const CHARGE_CATEGORIES = Globals.CHARGE_CATEGORIES
@@ -6,7 +7,7 @@ const CURSES = Globals.SPELL_CURSES
 
 static var random_charge_spells: Array[String] = []
 
-static var character_loader=load("res://mods/framework/character_loader.gd")
+#static var character_loader=load("res://mods/framework/character_loader.gd")
 
 var id: String = ""
 
@@ -57,7 +58,7 @@ func _init(_id: String) -> void :
 	if group.has_string("flags"):
 		var flags: = group.get_string("flags").split(" ", false)
 		for flag in flags:
-			if flag in Globals.CHARACTERS.values() or flag in character_loader.added_characters:
+			if flag in Globals.CHARACTERS.values():
 				character = flag
 				character_specific = true
 				fixed_max_charge = true
@@ -73,7 +74,7 @@ func _init(_id: String) -> void :
 				no_use_sound = true
 			elif flag == "immediate":
 				immediate_effect = true
-			else:
+			elif flag not in CharacterLoader.added_characters:
 				assert (false, "Invalid spell flag " + flag + " for spell " + id)
 
 

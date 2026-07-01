@@ -1,10 +1,10 @@
 {
-    "id": "framework",
-    "packs":[
-        {
-            "path":"framework.pck",
-            "override":true,
-            "phase":"early",
-        }
-    ]
+	"id": "framework",
+	"packs":[
+		{
+			"path":"framework.pck",
+			"override":true,
+			"phase":"early",
+		}
+	]
 }

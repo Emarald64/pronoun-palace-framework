@@ -3,8 +3,8 @@ extends Control
 signal return_to_mod_list
 signal option_changed(name:String,value)
 
-static var check_box_scene:PackedScene=load("res://source/ui/menu/settings/check_box_setting.tscn")
-static var label_switch_setting_scene:PackedScene=load("res://source/ui/menu/settings/label_switcher_setting.tscn")
+static var check_box_scene:PackedScene=preload("res://source/ui/menu/settings/check_box_setting.tscn")
+static var label_switch_setting_scene:PackedScene=preload("res://source/ui/menu/settings/label_switcher_setting.tscn")
 
 var options:Array
 var get_setting_method:Callable

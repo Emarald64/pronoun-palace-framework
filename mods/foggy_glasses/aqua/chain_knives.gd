@@ -54,7 +54,7 @@ func spawn_animation()->void:
 	animating=false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	past_rotations.remove_at(0)
 	past_rotations.push_back(current_rotation)
 		
