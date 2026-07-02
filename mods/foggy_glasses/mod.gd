@@ -24,18 +24,23 @@ func generate_mod_settings_page()->Control:
 	return mod_settings_page
 
 func _ready() -> void:
-	SpellLoader.add_spell("foggy_glasses",1000.0,"support")
+	#SpellLoader.add_spell("foggy_glasses",1000.0,"support")
+	SpellLoader.add_spell("inverter",1000.0,"support")
 	
 	# add menu to mod settings menu
 	ModSettings.add_menu("Foggy Glasses Mod",generate_mod_settings_page)
 	
-	#var character_loader=load("res://mods/framework/character_loader.gd")
+	# add dew jubilist character
 	CharacterLoader.add_character("dew_jubilist",Globals.SPELLS.VERIFICATION_CAN,load("res://mods/foggy_glasses/dew_jubilist_icons.png"))
 	
 	# add custom intent for aqua
 	CustomIntent.custom_intent_icons["slash_wood"]=load("res://mods/foggy_glasses/pronounpalace-slashtiletype-px.png")
 
-
+	TileStatusLoader.add_tile_status("negative",preload("res://mods/foggy_glasses/inverted_pastic_tile.png"),preload("res://mods/foggy_glasses/inverted_wood_tile.png"))
+	TileStatusLoader.tile_face_color["negative"]=[Color.WHITE,Color.WHITE]
+	TileStatusLoader.tile_value_color["negative"]=[Color.WHITE,Color.WHITE]
+	TileStatusLoader.tile_value_multiplier_functions["negative"]=preload("res://source/tile_status/negative.gd").tile_value_multiplier
+	
 func update_remove_other_enemies():
 	if exisiting_enemy_pool==null:
 		exisiting_enemy_pool=EnemyLoader.enemy_pools[0][0]

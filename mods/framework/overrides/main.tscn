@@ -2,10 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://dt2be1wikfttk" path="res://source/main.tscn" id="1_kt8xo"]
 [ext_resource type="Script" uid="uid://d1x1pd50orhu0" path="res://mods/framework/overrides/custom_main.gd" id="2_26mio"]
+[ext_resource type="Script" uid="uid://dtcldv0r2yovb" path="res://mods/framework/overrides/word_builder.gd" id="3_7g0i4"]
+[ext_resource type="Script" uid="uid://bilama0q5blop" path="res://mods/framework/overrides/tile_board.gd" id="3_j7iai"]
 [ext_resource type="Script" uid="uid://chnbvx442f1xu" path="res://mods/framework/overrides/intent_container.gd" id="3_syf14"]
 
 [node name="Main" unique_id=180122661 instance=ExtResource("1_kt8xo")]
 script = ExtResource("2_26mio")
+
+[node name="TileBoard" parent="GameUILayer" parent_id_path=PackedInt32Array(1903357470) index="2" unique_id=1619504647]
+script = ExtResource("3_j7iai")
+
+[node name="WordBuilder" parent="GameUILayer" parent_id_path=PackedInt32Array(1903357470) index="3" unique_id=952275895]
+script = ExtResource("3_7g0i4")
 
 [node name="EnemyIntentContainer" parent="GameUILayer" parent_id_path=PackedInt32Array(1903357470) index="6" unique_id=112413146]
 script = ExtResource("3_syf14")

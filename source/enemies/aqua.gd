@@ -70,7 +70,7 @@ func slash_tiles():
 
 	var outer_tiles = get_tiles({
 		rows = [0, -1], 
-		effect_priority = PURE_EFFECT_PRIORITY, 
+		effect_priority = EFFECT_PRIORITY.STATUS,
 		type=TileType.DEFENSE
 	})
 	

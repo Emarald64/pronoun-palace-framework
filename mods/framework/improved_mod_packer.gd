@@ -2,11 +2,10 @@
 extends EditorScript
 
 var mod_id="framework"
-var zip_pack:=true
-var excude_uid_files:=true
+var zip_pack:=false
 
 var additional_files: PackedStringArray = [
-	#"res://source/spell/spell_data.gd",
+	"res://source/spell/spell_data.gd",
 	"res://strings/menu/settings.txt",
 	"res://.godot/uid_cache.bin", # saves uids so you dont get warning for every file you load
 	"res://.godot/global_script_class_cache.cfg" # saves global classes
@@ -26,7 +25,7 @@ func _run() -> void :
 		packer.pck_start("res://mod_packs/"+mod_id+"/"+mod_id+".pck")
 	# automaticcly includes files in your mod's folder
 	var mod_files=Util.get_file_paths_recursive("res://mods/"+mod_id)
-	var global_scripts:Array[Dictionary]=[]
+	#var global_scripts:Array[Dictionary]=[]
 	for file in mod_files+additional_files:
 		if file not in excluded and not file.ends_with(".uid"): 
 			if ResourceLoader.exists(file):

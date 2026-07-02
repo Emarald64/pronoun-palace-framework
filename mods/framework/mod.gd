@@ -1,6 +1,7 @@
 class_name Framework extends Mod
 
-const pronoun_palace_version="1.1.2"
+const pronoun_palace_version="1.1.4"
+static var framework_version="1.5"
 
 #static var spell_loader=load("res://mods/framework/spell_loader.gd")
 #static var character_loader=load("res://mods/framework/character_loader.gd")
@@ -107,7 +108,9 @@ static func change_script_and_copy_properties(object:Object,script:Script):
 		object.set(property,properties[property])
 	print("set properties")
 
+
 func _ready() -> void:
+	get_tree().scene_changed.connect(_on_scene_change)
 	var current_scene=get_tree().current_scene
 	if current_scene is MainMenu:
 		run_main_menu_additions(current_scene)
@@ -117,13 +120,10 @@ func _ready() -> void:
 		var popup=load("res://mods/framework/incompatible_version_popup.tscn").instantiate()
 		popup.get_node("Label").text="The version of the game you are running ("+ProjectSettings.get_setting("application/config/version")+")\nmay be incompatible with this version of the framework for "+pronoun_palace_version+"\nproceed at you own risk"
 		add_child(popup)
-	get_tree().scene_changed.connect(_on_scene_change)
 	await get_tree().process_frame
 	Globals.set_script(load("res://mods/framework/overrides/custom_globals.gd"))
 	await get_tree().create_timer(0.5).timeout
-	#print(Game.get_path())
 	change_script_and_copy_properties(Game,load("res://mods/framework/overrides/custom_game.gd"))
-	#print(Game.get_script())
 
 func load_save_data(data: Dictionary):
 	CharacterLoader.save_data=data.get("character",{})

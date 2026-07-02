@@ -12,4 +12,3 @@
 
 :max_charge:
 	0
-

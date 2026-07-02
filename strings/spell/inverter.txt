@@ -1,0 +1,24 @@
+:name:
+	Inverter
+
+:description:
+	Alternates between making a tile negative and crit
+
+:label:
+	Negative and crit
+
+:banner:
+	{:invert_banner: if invert}
+	{:crit_banner: not invert}
+
+:invert_banner:
+	Select a tile to apply negative to.
+
+:crit_banner:
+	Select a tile to apply crit to.
+
+:charge_category:
+	very_common
+
+:max_charge:
+	4

@@ -18,4 +18,4 @@
 	3
 
 :flags:
-	no_use_sound dew_jubilist
+	no_use_sound lexicographer

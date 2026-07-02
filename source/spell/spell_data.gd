@@ -1,13 +1,10 @@
-#class_name SpellData 
-extends RefCounted
+class_name SpellData extends RefCounted
 
 
 const CHARGE_CATEGORIES = Globals.CHARGE_CATEGORIES
 const CURSES = Globals.SPELL_CURSES
 
 static var random_charge_spells: Array[String] = []
-
-#static var character_loader=load("res://mods/framework/character_loader.gd")
 
 var id: String = ""
 
@@ -24,10 +21,10 @@ var use_while_selecting: = false
 var no_use_sound: = false
 var immediate_effect: = false
 
-static func _static_init() -> void:
+
+static func _static_init() -> void :
 	random_charge_spells.clear()
-	var spell_pool=Globals.SPELL_POOL
-	for spell in spell_pool:
+	for spell in Globals.SPELL_POOL:
 		var group: = StringManager.get_string_group("spell/" + spell)
 		if group.has_string("charge_characters"):
 			random_charge_spells.append(spell)
@@ -35,7 +32,6 @@ static func _static_init() -> void:
 			var category: = group.get_string("charge_category")
 			if category not in Globals.SPECIAL_CHARGES:
 				random_charge_spells.append(spell)
- 
 
 
 func _init(_id: String) -> void :
@@ -74,7 +70,7 @@ func _init(_id: String) -> void :
 				no_use_sound = true
 			elif flag == "immediate":
 				immediate_effect = true
-			elif flag not in CharacterLoader.added_characters:
+			else:
 				assert (false, "Invalid spell flag " + flag + " for spell " + id)
 
 

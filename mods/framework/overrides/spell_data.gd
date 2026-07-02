@@ -1,5 +1,6 @@
 #@warning_ignore("shadowed_global_identifier")
-class_name SpellData extends "res://source/spell/spell_data.gd"
+#class_name SpellData 
+extends "res://source/spell/spell_data.gd"
 
 func _init(_id: String) -> void :
 	super(_id)
