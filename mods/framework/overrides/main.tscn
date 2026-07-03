@@ -19,5 +19,8 @@ script = ExtResource("3_7g0i4")
 script = ExtResource("3_syf14")
 realign_with_word_length = false
 
+[node name="VBoxContainer" parent="GameUILayer/ActTitle/CenterContainer" parent_id_path=PackedInt32Array(1275074864) index="0" unique_id=2117470445]
+visible = false
+
 [editable path="GameUILayer/TileBoard"]
 [editable path="MenuLayer/PauseMenu/ResumeButton"]

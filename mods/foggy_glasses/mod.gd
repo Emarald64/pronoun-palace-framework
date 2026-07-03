@@ -51,7 +51,8 @@ func update_remove_other_enemies():
 		for enemy in Enemies.POOLS[0][0]:
 			if enemy not in EnemyLoader.enemy_pools[0][0]:
 				EnemyLoader.enemy_pools[0][0].append(enemy)
-	EnemyLoader.add_enemy("aqua",0,0,"res://mods/foggy_glasses/aqua/miniface_aqua.png")
+	if "aqua" not in EnemyLoader.enemy_pools[0][0]:
+		EnemyLoader.add_enemy("aqua",0,0,"res://mods/foggy_glasses/aqua/miniface_aqua.png")
 
 func _on_options_updated(option_name:String,value):
 	match option_name:
