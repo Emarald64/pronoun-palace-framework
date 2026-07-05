@@ -46,3 +46,5 @@ You must have already extracted the game's files to mod it. How to extract the g
 Download the code for the framework this repo from the source code archive in the latest [release]((https://github.com/Emarald64/pronoun-palace-framework/releases))
 
 Copy the files from the zip into Pronoun Palace's extracted file, overwriting any files if prompted
+
+The .pck files for the framework and foggy glasses mods are not included when cloning the repo. In the editor, the game's mod_loader will not run the scripts for these mods without a .pck file in `res://mod_packs/framework` and `res://mod_packs/foggy_glasses` respectively. Either download them from the realeases page or package them yourself by running the `mod_packer.gd` script in the `res://mods/framework` and `res://mods/foggy_glasses` folders
