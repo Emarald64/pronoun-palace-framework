@@ -1,6 +1,6 @@
 extends Mod
 
-var remove_other_enemies:=true
+var remove_other_enemies:=false
 var exisiting_enemy_pool:Array[String]
 #var enemy_loader
 #var framework
@@ -24,6 +24,8 @@ func generate_mod_settings_page()->Control:
 	return mod_settings_page
 
 func _ready() -> void:
+	update_remove_other_enemies()
+	
 	#SpellLoader.add_spell("foggy_glasses",1000.0,"support")
 	SpellLoader.add_spell("inverter",1000.0,"support")
 	
