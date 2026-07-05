@@ -35,7 +35,7 @@ func apply_to_tile(tile: Tile, _real_tile: Tile, is_preview: bool, _is_preview_u
 
 
 func is_tile_selectable(tile: Tile) -> bool:
-	return not tile.has_harmful_status() and (state!=CRIT or not tile.has_status(CRIT))
+	return not tile.has_harmful_status() and (state!=CRIT or not tile.has_status(TileStatus.CRIT))
 
 func get_save_data():
 	var save =super()

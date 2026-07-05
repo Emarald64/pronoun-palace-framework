@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://cdntiauj10va6" path="res://source/tile/hole.gdshader" id="2_otar6"]
 [ext_resource type="Texture2D" uid="uid://148kaduvpg0r" path="res://arte/tiles/hole_mask.png" id="3_7nxpq"]
 [ext_resource type="Script" uid="uid://bgwqjb6y6wrhb" path="res://mods/framework/overrides/tile_sprite.gd" id="4_7nxpq"]
+[ext_resource type="Script" uid="uid://cd6bko0g4ic42" path="res://mods/framework/overrides/tile.gd" id="4_xxx2f"]
 [ext_resource type="Script" uid="uid://chlapfgyldr3p" path="res://mods/framework/overrides/tile_face.gd" id="5_xxx2f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p3maw"]
@@ -14,6 +15,7 @@ shader_parameter/hole_mask = ExtResource("3_7nxpq")
 
 [node name="Tile" unique_id=89225296 instance=ExtResource("1_yd1qj")]
 material = SubResource("ShaderMaterial_p3maw")
+script = ExtResource("4_xxx2f")
 
 [node name="TileSprite" parent="HoverContainer/SwayHandler" parent_id_path=PackedInt32Array(1465387899) index="0" unique_id=966228048]
 script = ExtResource("4_7nxpq")

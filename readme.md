@@ -42,6 +42,6 @@ Pronoun Palace
 
 You must have already extracted the game's files to mod it. How to extract the game's files is included in the [modding guide](https://gist.github.com/Emarald64/65943d629b6ff5fd08a2d8022397aacb)
 
-Download the code for the framework this repo by pressing the Code -> Download zip button
+Download the code for the framework this repo from the source code archive in the latest [release]((https://github.com/Emarald64/pronoun-palace-framework/releases))
 
 Copy the files from the zip into Pronoun Palace's extracted file, overwriting any files if prompted

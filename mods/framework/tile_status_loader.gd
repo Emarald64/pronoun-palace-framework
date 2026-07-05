@@ -5,19 +5,23 @@ extends RefCounted
 static var added_statuses:Array[String]=[]
 static var plastic_textures:Dictionary[String,Texture2D]={}
 static var wood_textures:Dictionary[String,Array]={}
+## key: status id, value: a function that will called for every a tile with the effect in the word. The instance of the status on the tile and the word builder will be passed as arguments in that order to the function. These should be used to invalidate the word or add intents, not apply any affects exept for changes in damage, defence, or healing
 static var word_affects:Dictionary[String,Callable]={}
+## key: status id, value: a function that will called for every a tile with the effect on the board. The instance of the status on the tile and the word builder will be passed as arguments in that order to the function. These should be used to invalidate the word or add intents, not apply any affects exept for changes in damage, defence, or healing
 static var board_affects:Dictionary[String,Callable]={}
+## These functions will be called when a word is submitted. This the where you should search you tiles with your status and apply your status' affect should apply. The tile board will be passed as an argument to this function.
 static var trigger_funcs:Array[Callable]=[]
+## Called to determine the value multiplier for a tile with your effect, the function is passed the tile
+static var tile_value_multiplier_functions:Dictionary[String,Callable]={}
 ## Color of the letter on the tile
 static var tile_face_color:Dictionary[String,Array]={}
 ## Color of the value on the tile
 static var tile_value_color:Dictionary[String,Array]={}
-static var tile_value_multiplier_functions:Dictionary[String,Callable]={}
+## Color of the shadow of the letter and value
+static var tile_deboss_color:Dictionary[String,Array]={}
 
 ## [b]Add a new tile affect[/b][br]
-## [code]wood_texture[/code] can either be a [Texture2D] or an [Array] or [Texture2D]s[br]
-## [code]word_affect[/code] and [code]board_affect[/code] is a function that will called for every a tile with the affect in the word or board respecively. The instance of the status on the tile and the word builder will be passed as arguments in that order to the function. These should be used to invalidate the word or add intents, not apply any affects exept for changes in damage, defence, or healing[br]
-## [code]trigger_func[/code] will be called when a word is submitted. This the where you should search you tiles with your status and apply your status' affect should apply. The tile board will be passed as an argument to this function.
+## [code]wood_texture[/code] can either be a [Texture2D] or an [Array] of [Texture2D]s[br]
 static func add_tile_status(id:String,plastic_texture:Texture2D,wood_texture,word_affect=null,board_affect=null,trigger_func=null):
 	added_statuses.append(id)
 	plastic_textures[id]=plastic_texture

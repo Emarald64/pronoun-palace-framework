@@ -53,7 +53,7 @@ func flash():
 		var new_tiles=get_tiles({
 			amount=remaining,
 			type_priority = TileType.DAMAGE,
-			effect_priority = DEFAULT_EFFECT_PRIORITY,
+			effect_priority = EFFECT_PRIORITY.STATUS,
 		})
 		eternal_tiles.append_array(new_tiles)
 	for tile:Tile in eternal_tiles:
@@ -62,7 +62,7 @@ func flash():
  
 	var shimmering_tiles=get_tiles({
 		amount=moves.flash.shimmering,
-		effect_priority = DEFAULT_EFFECT_PRIORITY
+		effect_priority = EFFECT_PRIORITY.STATUS
 	})
 	for tile:Tile in shimmering_tiles:
 		tile.apply_shimmering()
@@ -75,7 +75,7 @@ func peanuts():
 	var bruse_tiles=get_tiles({
 		amount=moves.peanuts.bruise,
 	#type_priority = TileType.DAMAGE,
-		effect_priority = DEFAULT_EFFECT_PRIORITY,
+		effect_priority = EFFECT_PRIORITY.STATUS,
 	})
 	for tile:Tile in bruse_tiles:
 		tile.add_status(TileStatus.BRUISE)

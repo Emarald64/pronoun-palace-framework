@@ -39,6 +39,7 @@ func _ready() -> void:
 	TileStatusLoader.add_tile_status("negative",preload("res://mods/foggy_glasses/inverted_pastic_tile.png"),preload("res://mods/foggy_glasses/inverted_wood_tile.png"))
 	TileStatusLoader.tile_face_color["negative"]=[Color.WHITE,Color.WHITE]
 	TileStatusLoader.tile_value_color["negative"]=[Color.WHITE,Color.WHITE]
+	TileStatusLoader.tile_deboss_color["negative"]=[Color("08235b"),Color("382932")]
 	TileStatusLoader.tile_value_multiplier_functions["negative"]=preload("res://source/tile_status/negative.gd").tile_value_multiplier
 	
 func update_remove_other_enemies():
