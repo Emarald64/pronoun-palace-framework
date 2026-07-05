@@ -1,14 +1,15 @@
 # Pronoun Palace Framework
 
+A mod for Pronoun Palace that allows other mods to add custom spells, enemies, characters, tile effects, and settings menus.
+
+<img width="1580" height="739" alt="Screenshot_20260704_221825" src="https://github.com/user-attachments/assets/d643ffca-94df-4f6b-947f-825c0ea491a2" />
+
 The Foggy Glasses are included in this repo as an example of a mod which uses the framework.   
-It adds the spell foggy glasses, the enemy Aqua, and the character Dew Jubilist  
-The foggy glasses are based off the Dyslexic character by [Soƒti](https://bsky.app/profile/softisafe.bsky.social)
+It adds the spell inverter, the enemy Aqua, the character Dew Jubilist, and the tile affect negative.
 
 Pronoun Palace and this framework are written in Godot, using GDScript. You should know how to use Godot if you want to make mods for this game. You can learn Godot from the offical docs [here](https://docs.godotengine.org/en/stable/getting_started/introduction/index.html) and there are tons of tutorials for it on youtube (though, personally I find video tutorials unhelpful to learn things). 
 
 If you need help learning how to mod Pronoun Palace, check out the guide I made: [How to make Pronoun Palace mods](https://gist.github.com/Emarald64/65943d629b6ff5fd08a2d8022397aacb) or ask me in the \#modding channel in the Pronoun Palace Discord. 
-
-The .pck files for the framework and foggy glasses mods are not included when cloning the repo. In the editor, the mod_loader will not run the scripts for these mods without a .pck file in `res://mod_packs/framework` or `res://mod_packs/foggy_glasses` respectively. Either download them from the realeases page or package them yourself by running the `mod_packer.gd` script in the `mods/framework` and `mods/foggy_glasses` folders
 
 > [!NOTE]
 > The framework requires a specific version of Pronoun Palace to work. The version will be shown on the release page and you will see a popup when starting the game on an unsupported version
