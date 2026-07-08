@@ -29,7 +29,7 @@ func update_sprite():
 			if status is String and status in custom_status_intent_icons:
 				sprite.vframes=1
 				sprite.hframes=1
-				sprite.texture=custom_status_intent_icons[intent]
+				sprite.texture=custom_status_intent_icons[status]
 				break
 			elif status in StatusIntentFrame:
 				sprite.frame = StatusIntentFrame[status]
