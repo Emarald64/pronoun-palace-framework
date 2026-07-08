@@ -5,8 +5,8 @@ func update_frame() -> void :
 	tile.tile_sprite.set_frame(frame)
 	tile.tile_sprite.update_texture()
 
-static func tile_value_multiplier(_tile:Tile)->float:
-	return -1
+static func tile_value_modifier(status:Status,value:int)->float:
+	return -value
 
 #static func word_affect(status:Status,word_builder:Node2D) ->void:
 	#if status.tile.is_type(Globals.TileType.DAMAGE):

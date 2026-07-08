@@ -1,11 +1,11 @@
 extends "res://source/word_builder/word_builder.gd"
 
-func get_tile_multiplier(tile: Tile) -> int:
-	var mult:=1.0
-	for status_id in TileStatusLoader.tile_value_multiplier_functions:
-		if tile.has_status(status_id):
-			mult*=TileStatusLoader.tile_value_multiplier_functions[status_id].call(tile)
-	return super(tile)*mult
+#func get_tile_multiplier(tile: Tile) -> int:
+	#var mult:=1.0
+	#for status_id in TileStatusLoader.tile_value_multiplier_functions:
+		#if tile.has_status(status_id):
+			#mult*=TileStatusLoader.tile_value_multiplier_functions[status_id].call(tile)
+	#return super(tile)*mult
 
 func update_stats() -> void :
 	var words: = get_words()

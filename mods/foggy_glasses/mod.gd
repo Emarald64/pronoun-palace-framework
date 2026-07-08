@@ -33,16 +33,17 @@ func _ready() -> void:
 	ModSettings.add_menu("Foggy Glasses Mod",generate_mod_settings_page)
 	
 	# add dew jubilist character
-	CharacterLoader.add_character("dew_jubilist",Globals.SPELLS.VERIFICATION_CAN,load("res://mods/foggy_glasses/dew_jubilist_icons.png"))
+	CharacterLoader.add_character("dew_jubilist",Globals.SPELLS.VERIFICATION_CAN,preload("res://mods/foggy_glasses/dew_jubilist_icons.png"))
 	
 	# add custom intent for aqua
-	CustomIntent.custom_intent_icons["slash_wood"]=load("res://mods/foggy_glasses/pronounpalace-slashtiletype-px.png")
+	CustomIntent.custom_intent_icons["slash_wood"]=preload("res://mods/foggy_glasses/pronounpalace-slashtiletype-px.png")
 
 	TileStatusLoader.add_tile_status("negative",preload("res://mods/foggy_glasses/inverted_pastic_tile.png"),preload("res://mods/foggy_glasses/inverted_wood_tile.png"))
 	TileStatusLoader.tile_face_color["negative"]=[Color.WHITE,Color.WHITE]
 	TileStatusLoader.tile_value_color["negative"]=[Color.WHITE,Color.WHITE]
 	TileStatusLoader.tile_deboss_color["negative"]=[Color("08235b"),Color("382932")]
-	TileStatusLoader.tile_value_multiplier_functions["negative"]=preload("res://source/tile_status/negative.gd").tile_value_multiplier
+	TileStatusLoader.tile_value_modifier_functions["negative"]=preload("res://source/tile_status/negative.gd").tile_value_modifier
+
 	
 func update_remove_other_enemies():
 	if exisiting_enemy_pool==null:

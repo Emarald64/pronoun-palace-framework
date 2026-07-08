@@ -11,8 +11,8 @@ static var word_affects:Dictionary[String,Callable]={}
 static var board_affects:Dictionary[String,Callable]={}
 ## These functions will be called when a word is submitted. This the where you should search you tiles with your status and apply your status' affect should apply. The tile board will be passed as an argument to this function.
 static var trigger_funcs:Array[Callable]=[]
-## Called to determine the value multiplier for a tile with your effect, the function is passed the tile
-static var tile_value_multiplier_functions:Dictionary[String,Callable]={}
+## Called to determine the value for a tile with your effect, the function is passed the instance of the staus on the tile and the current value
+static var tile_value_modifier_functions:Dictionary[String,Callable]={}
 ## Color of the letter on the tile
 static var tile_face_color:Dictionary[String,Array]={}
 ## Color of the value on the tile
