@@ -319,6 +319,7 @@ script = ExtResource("2_p08b3")
 texture_filter = 1
 
 [node name="Sprite" type="Sprite2D" parent="Sprite" index="0" unique_id=1395428205 groups=["make_smoll"]]
+z_index = 1
 texture_filter = 1
 scale = Vector2(2, 2)
 texture = ExtResource("2_63rc5")
@@ -342,7 +343,6 @@ scale = Vector2(2, 2)
 script = ExtResource("5_aoa43")
 
 [node name="back" type="Sprite2D" parent="Sprite/chainswing arms" index="0" unique_id=287475957]
-z_index = -1
 texture = ExtResource("6_iqyeo")
 hframes = 5
 vframes = 4
