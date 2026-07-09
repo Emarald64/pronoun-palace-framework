@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d2c6gfd365knb"]
+
+[ext_resource type="PackedScene" uid="uid://bjwq1tyfcolw1" path="res://source/ui/credits/primary_credits.tscn" id="1_txqjx"]
+[ext_resource type="Script" uid="uid://dwp6pt04tbxih" path="res://mods/framework/overrides/mod_credits.gd" id="2_ocrxc"]
+
+[node name="ModCredits" unique_id=1246381456 instance=ExtResource("1_txqjx")]
+script = ExtResource("2_ocrxc")
+credit_path = "credits/mods"

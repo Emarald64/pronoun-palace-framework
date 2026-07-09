@@ -26,6 +26,26 @@ func _on_scene_change()->void:
 	if current_scene is MainMenu:
 		run_main_menu_additions(current_scene)
 
+func _on_node_added(node:Node)->void:
+	if node is Credits:
+		var after_playtesters=node.get_node("CreditsContainer/Control4")
+		var seperater=Control.new()
+		seperater.custom_minimum_size=Vector2(0,50)
+		after_playtesters.add_sibling(seperater)
+		var mod_credits=load("res://mods/framework/overrides/mod_credits.tscn").instantiate()
+		#mod_credits.credit_path="credits/mods"
+		after_playtesters.add_sibling(mod_credits)
+		var mods_header=load("res://source/ui/credits/credits_header.tscn").instantiate()
+		mods_header.key="Mods"
+		after_playtesters.add_sibling(mods_header)
+		
+		# adjust scroll animation
+		var credits_container:Control=node.get_node("CreditsContainer")
+		var animation:Animation=node.get_node("AnimPlayer").get_animation("roll_credits")
+		credits_container.reset_size()
+		await get_tree().process_frame
+		animation.track_set_key_value(1,1,Vector2(0,-credits_container.size.y-15))
+
 func run_main_menu_additions(main_menu:MainMenu):
 	# Add mod section the settings menu
 	var settings_menu_panel=main_menu.get_node("HUD/SettingsMenu/OptionsMenu/PositionRoot/Panel")
@@ -110,7 +130,9 @@ static func change_script_and_copy_properties(object:Object,script:Script):
 
 
 func _ready() -> void:
-	get_tree().scene_changed.connect(_on_scene_change)
+	var tree:=get_tree()
+	tree.scene_changed.connect(_on_scene_change)
+	tree.node_added.connect(_on_node_added)
 	var current_scene=get_tree().current_scene
 	if current_scene is MainMenu:
 		run_main_menu_additions(current_scene)
@@ -121,9 +143,9 @@ func _ready() -> void:
 			var popup=load("res://mods/framework/incompatible_version_popup.tscn").instantiate()
 			popup.get_node("Label").text="The version of the game you are running ("+ProjectSettings.get_setting("application/config/version")+")\nmay be incompatible with this version of the framework for "+pronoun_palace_version+"\nproceed at you own risk"
 			add_child(popup)
-	await get_tree().process_frame
+	await tree.process_frame
 	Globals.set_script(load("res://mods/framework/overrides/custom_globals.gd"))
-	await get_tree().create_timer(0.5).timeout
+	await tree.create_timer(0.5).timeout
 	change_script_and_copy_properties(Game,load("res://mods/framework/overrides/custom_game.gd"))
 
 func load_save_data(data: Dictionary):
