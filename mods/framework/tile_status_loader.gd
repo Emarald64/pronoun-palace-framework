@@ -13,6 +13,8 @@ static var board_affects:Dictionary[String,Callable]={}
 static var trigger_funcs:Array[Callable]=[]
 ## Called to determine the value for a tile with your effect, the function is passed the instance of the staus on the tile and the current value
 static var tile_value_modifier_functions:Dictionary[String,Callable]={}
+##
+static var tile_face_alter_funcs:Dictionary[String,Callable]={}
 ## Color of the letter on the tile
 static var tile_face_color:Dictionary[String,Array]={}
 ## Color of the value on the tile
