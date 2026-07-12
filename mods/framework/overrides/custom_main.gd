@@ -1,8 +1,8 @@
 extends Main
 
 
-var enemy_loader=load("res://mods/framework/enemy_loader.gd")
-var character_loader=load("res://mods/framework/character_loader.gd")
+#var enemy_loader=load("res://mods/framework/enemy_loader.gd")
+#var character_loader=load("res://mods/framework/character_loader.gd")
 
 func _init():
 	print("custom main init")
@@ -16,7 +16,7 @@ func _ready():
 func generate_act():
 	act_events = []
 
-	for stage_pool in enemy_loader.enemy_pools[act]:
+	for stage_pool in EnemyLoader.enemy_pools[act]:
 		var use_pool = stage_pool.duplicate()
 		print("generate act: "+str(use_pool))
 
@@ -82,25 +82,10 @@ func generate_act():
 		act_events = act_events.slice(enemy_index)
 
 
-func spawn_player(id):
-	Game.player = load("res://source/characters/" + id + ".tscn").instantiate()
-	player = Game.player
-
-	player.action_finished.connect(_on_player_action_finished)
-	player.rerolled.connect(_on_player_rerolled)
-
-	player_marker.add_child(player)
-
-	player_info_bar.set_battle_unit(player)
-	player.set_intent_container( %PlayerIntentContainer)
-
-	if id == Globals.CHARACTERS.ADDICT:
-		turn_timer.enable()
-
 
 func spawn_enemy(enemy_name):
-	if enemy_name==Enemies.NOBODY and player.id in character_loader.nobody_scenes:
-		enemy_name = character_loader.nobody_scenes[player.id]
+	if enemy_name==Enemies.NOBODY and player.id in CharacterLoader.nobody_scenes:
+		enemy_name = CharacterLoader.nobody_scenes[player.id]
 	if enemy_name.get_extension() != "tscn":
 		enemy_name = "res://source/enemies/" + enemy_name + ".tscn"
 

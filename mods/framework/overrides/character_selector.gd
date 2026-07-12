@@ -1,6 +1,6 @@
 extends CharacterSelector
 
-var character_loader=load("res://mods/framework/character_loader.gd")
+#var character_loader=load("res://mods/framework/character_loader.gd")
 var icon_scene=load("res://mods/framework/overrides/character_selector_icon.tscn")
 
 func update_character() -> void :
@@ -31,8 +31,8 @@ func update_character() -> void :
 	%OccupationLabel.text = char_string_or_locked("occupation", context)
 
 	var spell_id:String
-	if id in character_loader.character_spells:
-		spell_id=character_loader.character_spells[id]
+	if id in CharacterLoader.character_spells:
+		spell_id=CharacterLoader.character_spells[id]
 	else:
 		spell_id = Globals.CHARACTER_SPELLS[id][0]
 	var spell: = Spell._instantiate_spell(spell_id)
@@ -49,7 +49,7 @@ func update_character() -> void :
 
 
 func instantiate_icons() -> void :
-	for id in CHAR_ORDER+character_loader.added_characters:
+	for id in CHAR_ORDER+CharacterLoader.added_characters:
 		var icon: CharacterSelectorIcon = icon_scene.instantiate()
 		icon.set_character(id, Globals.is_character_trans(id, get_character_difficulty(id)))
 		icons.append(icon)
@@ -60,10 +60,10 @@ func instantiate_icons() -> void :
 	icons_instantiated = true
 
 func get_character_difficulty(character: String) -> int:
-	if character in character_loader.added_characters:
-		return character_loader.save_data.selected_character_difficulty.get(character,10)
+	if character in CharacterLoader.added_characters:
+		return CharacterLoader.save_data.selected_character_difficulty.get(character,10)
 	else:
-		return SaveManager.get_save().data.selected_character_difficulty[character]
+		return super(character)
 
 func _on_start_appearing() -> void :
 	if not icons_instantiated:
@@ -72,11 +72,11 @@ func _on_start_appearing() -> void :
 	update_character_icons()
 
 	selected_character = SaveManager.get_save_data().selected_character
-	if (selected_character not in CHARACTERS.values() and selected_character not in character_loader.added_characters) or not Globals.is_character_unlocked(selected_character):
+	if (selected_character not in CHARACTERS.values() and selected_character not in CharacterLoader.added_characters) or not Globals.is_character_unlocked(selected_character):
 		selected_character = CHARACTERS.LEXICOGRAPHER
 
 	icon_selector.set_initial_selection(CHAR_ORDER.find(selected_character))
 	select_character(selected_character)
 	await get_tree().process_frame
-	if selected_character in character_loader.added_characters:
-		icon_selector.get_child(1).ensure_control_visible(icon_selector.icons[5+character_loader.added_characters.find(selected_character)])
+	if selected_character in CharacterLoader.added_characters:
+		icon_selector.get_child(1).ensure_control_visible(icon_selector.icons[5+CharacterLoader.added_characters.find(selected_character)])
