@@ -1,1 +1,1 @@
-extends Spell
+extends "res://source/spells/verification_can.gd"

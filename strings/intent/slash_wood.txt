@@ -1,0 +1,5 @@
+:name:
+	Wooden Slash
+
+:description:
+	Intends to convert all plastic tiles on the top and bottom rows of the board to wooden slashes 

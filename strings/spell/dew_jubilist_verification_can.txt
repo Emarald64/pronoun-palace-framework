@@ -1,21 +1,17 @@
 :name:
-	Verification Can
+	{:verification_can/name:}
 
 :description:
-	Convert 2 random tiles to candy.
-	Convert the top 4 non-acid tiles to acid.
+	{:verification_can/description:}
 
 :label:
-	Acid and candy
-
-:unlock:
-	Beat Dew Jubilist without any acid reaching the bottom.
+	{:verification_can/label:}
 
 :charge_category:
-	uncommon
+	{:verification_can/charge_category:}
 
 :max_charge:
-	3
+	{:verification_can/max_charge:}
 
 :flags:
 	no_use_sound lexicographer

@@ -9,3 +9,7 @@ mods/*
 
 !mod_packs/framework/mod.json
 !mod_packs/foggy_glasses/mod.json
+
+!strings
+strings/*.txt
+# !strings/*/*
