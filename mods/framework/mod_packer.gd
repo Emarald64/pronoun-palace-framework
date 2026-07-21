@@ -7,6 +7,7 @@ var zip_pack:=false
 var additional_files: PackedStringArray = [
 	"res://source/spell/spell_data.gd",
 	"res://strings/menu/settings.txt",
+	"res://strings/credits/mods/framework.txt"
 	"res://.godot/uid_cache.bin", # saves uids so you dont get warning for every file you load
 	"res://.godot/global_script_class_cache.cfg" # saves global classes
 ]
