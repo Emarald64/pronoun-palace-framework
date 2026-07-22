@@ -1,7 +1,7 @@
 class_name Framework extends Mod
 
-const pronoun_palace_version="1.2.2"
-const framework_version="1.5.2"
+const pronoun_palace_version="1.2.3"
+const framework_version="1.5.4"
 
 #static var spell_loader=load("res://mods/framework/spell_loader.gd")
 #static var character_loader=load("res://mods/framework/character_loader.gd")
