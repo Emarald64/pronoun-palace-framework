@@ -8,6 +8,8 @@ static var added_character_icons:Dictionary[String,Texture2D]={}
 static var character_spells:Dictionary[String,String]={}
 ## Character id to path to nobody scene
 static var nobody_scenes:Dictionary[String,String]={}
+## Character id to an array of strings, the first string being the path the speech bubble and the second the path the the speech buble tail
+static var speech_bubbles:Dictionary[String,Array]={}
 
 const default_save_data={
 	selected_character_difficulty={}

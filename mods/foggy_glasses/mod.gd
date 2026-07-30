@@ -35,6 +35,7 @@ func _ready() -> void:
 	
 	# add dew jubilist character
 	CharacterLoader.add_character("dew_jubilist",Globals.SPELLS.VERIFICATION_CAN,preload("res://mods/foggy_glasses/dew_jubilist_icons.png"))
+	CharacterLoader.speech_bubbles["dew_jubilist"]=["res://mods/foggy_glasses/dew_speech_bubble.png","res://mods/foggy_glasses/dew_speech_bubble_tail.png"]
 	
 	# add custom intent for aqua
 	CustomIntent.custom_intent_icons["slash_wood"]=preload("res://mods/foggy_glasses/pronounpalace-slashtiletype-px.png")
