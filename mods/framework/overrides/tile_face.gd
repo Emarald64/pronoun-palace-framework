@@ -1,4 +1,3 @@
-@tool
 extends TileFace
 
 @onready var tile=get_node("../../../..")
