@@ -2,11 +2,18 @@ extends TileSprite
 
 func get_wood_texture() -> Texture2D:
 	var tile:Tile= get_node("../../..")
-	for status in TileStatusLoader.plastic_textures:
+	for status in TileStatusLoader.wood_textures:
 		if tile.has_status(status):
 			set_frames()
-			var status_wood_textures:=TileStatusLoader.wood_textures[status]
-			return status_wood_textures[wood_variant%len(status_wood_textures)]
+			if is_fish:
+				var wood_fish_textures= TileStatusLoader.plastic_fish_textures[status][1 if is_flipped else 0]
+				if wood_fish_textures is Texture2D:
+					return wood_fish_textures
+				else:
+					wood_fish_textures[wood_variant%len(wood_fish_textures)]
+			else:
+				var status_wood_textures:=TileStatusLoader.wood_textures[status]
+				return status_wood_textures[wood_variant%len(status_wood_textures)]
 	
 	set_frames(true)
 	if is_fish:
@@ -37,6 +44,8 @@ func get_plastic_texture() -> Texture2D:
 	for status in TileStatusLoader.plastic_textures:
 		if tile.has_status(status):
 			set_frames()
+			if is_fish:
+				return TileStatusLoader.plastic_fish_textures[status][1 if is_flipped else 0]
 			return TileStatusLoader.plastic_textures[status]
 	
 	set_frames(true)

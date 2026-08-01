@@ -88,7 +88,7 @@ func update_stats() -> void :
 		for status_id in TileStatusLoader.word_affects:
 			var status := tile.get_status(status_id)
 			if status:
-				TileStatusLoader.word_affects[status_id].call(status,self)
+				TileStatusLoader.word_affects[status_id].call(status,self,warnings)
 
 	var invalidated_linked_count: int = 0
 	var invalidated_linked_colors = {}
@@ -134,7 +134,7 @@ func update_stats() -> void :
 		for status_id in TileStatusLoader.board_affects:
 			var status := tile.get_status(status_id)
 			if status:
-				TileStatusLoader.word_affects[status_id].call(status,self)
+				TileStatusLoader.word_affects[status_id].call(status,self,warnings)
 
 	tile_defense = int(ceil(defense * defense_multiplier))
 

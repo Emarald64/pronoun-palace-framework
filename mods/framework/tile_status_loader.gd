@@ -5,9 +5,12 @@ extends RefCounted
 static var added_statuses:Array[String]=[]
 static var plastic_textures:Dictionary[String,Texture2D]={}
 static var wood_textures:Dictionary[String,Array]={}
-## key: status id, value: a function that will called for every a tile with the effect in the word. The instance of the status on the tile and the word builder will be passed as arguments in that order to the function. These should be used to invalidate the word or add intents, not apply any affects exept for changes in damage, defence, or healing
+## the first element in the array for each status should be the fish texture and the second, the flipped version of the texture
+static var plastic_fish_textures:Dictionary[String,Array]={}
+static var wood_fish_textures:Dictionary[String,Array]={}
+## key: status id, value: a function that will called for every a tile with the effect in the word. The instance of the status on the tile, the word builder, and the list of word warnings will be passed as arguments in that order to the function. These should be used to invalidate the word or add intents, not apply any affects exept for changes in damage, defence, or healing
 static var word_affects:Dictionary[String,Callable]={}
-## key: status id, value: a function that will called for every a tile with the effect on the board. The instance of the status on the tile and the word builder will be passed as arguments in that order to the function. These should be used to invalidate the word or add intents, not apply any affects exept for changes in damage, defence, or healing
+## key: status id, value: a function that will called for every a tile with the effect on the board. The instance of the status on the tile, the word builder, and the list of word warnings will be passed as arguments in that order to the function. These should be used to invalidate the word or add intents, not apply any affects exept for changes in damage, defence, or healing
 static var board_affects:Dictionary[String,Callable]={}
 ## These functions will be called when a word is submitted. This the where you should search you tiles with your status and apply your status' affect should apply. The tile board will be passed as an argument to this function.
 static var trigger_funcs:Array[Callable]=[]
