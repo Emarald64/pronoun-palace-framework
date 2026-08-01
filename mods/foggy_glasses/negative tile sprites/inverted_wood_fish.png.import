@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doiiuxwlcqlra"
-path="res://.godot/imported/inverted_wood_tile.png-ce06409e24250992b844f25214f541d8.ctex"
+uid="uid://dx4m10speuoab"
+path="res://.godot/imported/inverted_wood_fish.png-3d91a6bf7f4f384973e7a2450a8a00e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mods/foggy_glasses/inverted_wood_tile.png"
-dest_files=["res://.godot/imported/inverted_wood_tile.png-ce06409e24250992b844f25214f541d8.ctex"]
+source_file="res://mods/foggy_glasses/negative tile sprites/inverted_wood_fish.png"
+dest_files=["res://.godot/imported/inverted_wood_fish.png-3d91a6bf7f4f384973e7a2450a8a00e7.ctex"]
 
 [params]
 

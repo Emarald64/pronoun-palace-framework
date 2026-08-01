@@ -1,11 +1,14 @@
 extends Tile
 
 func get_deboss_color():
-	var TILE_DEBOSS_COLOR = Globals.TILE_DEBOSS_COLOR.merged(TileStatusLoader.tile_deboss_color)
+	const TILE_DEBOSS_COLOR = Globals.TILE_DEBOSS_COLOR
 
 	for status in get_statuses():
 		if status.id != TileStatus.DEFAULT and status.id in TILE_DEBOSS_COLOR:
 			return TILE_DEBOSS_COLOR[status.id][type]
+		
+		if status is CustomStatus and status.deboss_color!=null:
+			return status.deboss_color[type%status.deboss_color.size()]
 
 	return TILE_DEBOSS_COLOR[TileStatus.DEFAULT][type]
 
@@ -20,10 +23,9 @@ func get_value(for_face = false) -> int:
 	elif has_status(TileStatus.ENHANCED):
 		tile_value += 1
 
-	for status_id in TileStatusLoader.tile_value_modifier_functions:
-		var status=get_status(status_id)
-		if status!=null:
-			tile_value=TileStatusLoader.tile_value_modifier_functions[status_id].call(status,tile_value)
+	for status in get_statuses():
+		if status is CustomStatus:
+			tile_value=status.get_tile_value(tile_value)
 
 	if word_builder != null:
 		tile_value *= word_builder.get_tile_multiplier(self)

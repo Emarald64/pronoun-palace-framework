@@ -1,19 +1,26 @@
 @tool
 extends TileFace
 
+@onready var tile=get_node("../../../..")
+
 func update_visual(call_face = true):
 	super(call_face)
 	var type_color_index: int = 0 if type == TileType.DAMAGE else 1
-	for status in statuses:
-		if status in TileStatusLoader.tile_face_color:
-			set_color(TileStatusLoader.tile_face_color[status][type_color_index])
+	for status in tile.get_statuses():
+		if status is CustomStatus:
+			var face_color
+			if status.face_color!=null and not status.face_color.is_empty():
+				face_color=status.face_color[type_color_index%status.face_color.size()]
+				set_color(face_color)
 
-		if status in TileStatusLoader.tile_value_color:
-			value_color = TileStatusLoader.tile_value_color[status][type_color_index]
+			if status.value_color!=null and not status.value_color.is_empty():
+				value_color = status.value_color[type_color_index%status.value_color.size()]
+			elif face_color!=null:
+				value_color=face_color
 
 func alter_face_text(text: String) -> String:
-	for status in TileStatusLoader.tile_face_alter_funcs:
-		if status in statuses:
-			text=TileStatusLoader.tile_face_alter_funcs[status].call(text)
+	for status in tile.get_statuses():
+		if status is CustomStatus:
+			text=status.get_tile_face(text)
 
 	return super(text)

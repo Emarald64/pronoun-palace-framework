@@ -38,14 +38,7 @@ func _ready() -> void:
 	CharacterLoader.speech_bubbles["dew_jubilist"]=["res://mods/foggy_glasses/dew_speech_bubble.png","res://mods/foggy_glasses/dew_speech_bubble_tail.png"]
 	
 	# add custom intent for aqua
-	CustomIntent.custom_intent_icons["slash_wood"]=preload("res://mods/foggy_glasses/pronounpalace-slashtiletype-px.png")
-
-	TileStatusLoader.add_tile_status("negative",preload("res://mods/foggy_glasses/inverted_pastic_tile.png"),preload("res://mods/foggy_glasses/inverted_wood_tile.png"))
-	TileStatusLoader.tile_face_color["negative"]=[Color.WHITE,Color.WHITE]
-	TileStatusLoader.tile_value_color["negative"]=[Color.WHITE,Color.WHITE]
-	TileStatusLoader.tile_deboss_color["negative"]=[Color("08235b"),Color("382932")]
-	TileStatusLoader.tile_value_modifier_functions["negative"]=preload("res://source/tile_status/negative.gd").tile_value_modifier
-
+	CustomIntent.custom_intent_icons["slash_wood"]=preload("res://mods/foggy_glasses/pronounpalace-slashtiletype-px.png")	
 	
 func update_remove_other_enemies():
 	if exisiting_enemy_pool==null:

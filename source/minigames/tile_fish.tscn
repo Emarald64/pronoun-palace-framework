@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://dbit53hlocg0s"]
+
+[ext_resource type="Script" uid="uid://pn5bm7ix104o" path="res://source/minigames/tile_fish.gd" id="1"]
+[ext_resource type="Script" uid="uid://t2qumytdskwu" path="res://source/effects/sway_handler.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://dcyokpyakista" path="res://mods/framework/overrides/tile.tscn" id="3_1xsap"]
+[ext_resource type="Shader" uid="uid://cdntiauj10va6" path="res://source/tile/hole.gdshader" id="4"]
+[ext_resource type="Texture2D" uid="uid://148kaduvpg0r" path="res://arte/tiles/hole_mask.png" id="5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w00mb"]
+resource_local_to_scene = true
+shader = ExtResource("4")
+shader_parameter/viewport_scale = Vector2(0, 0)
+shader_parameter/hole_mask = ExtResource("5")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r21pj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ntllt"]
+radius = 9.05539
+
+[sub_resource type="Animation" id="Animation_6g36d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SwayHandler/PositionRoot/PositionOffset:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SwayHandler/PositionRoot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_tdyad"]
+resource_name = "catch_left"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SwayHandler/PositionRoot/PositionOffset:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.34151, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(20, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SwayHandler/PositionRoot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.34151, 1),
+"update": 0,
+"values": [0.0, 1.5708]
+}
+
+[sub_resource type="Animation" id="Animation_pcgrh"]
+resource_name = "catch_right"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SwayHandler/PositionRoot/PositionOffset:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999),
+"transitions": PackedFloat32Array(0.34151, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-20, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SwayHandler/PositionRoot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.34151, 1),
+"update": 0,
+"values": [0.0, -1.5708]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hlbu6"]
+_data = {
+&"RESET": SubResource("Animation_6g36d"),
+&"catch_left": SubResource("Animation_tdyad"),
+&"catch_right": SubResource("Animation_pcgrh")
+}
+
+[node name="TileFish" type="Node2D" unique_id=1016019917]
+z_index = 10
+script = ExtResource("1")
+
+[node name="SwayHandler" type="Node2D" parent="." unique_id=1957950056]
+unique_name_in_owner = true
+script = ExtResource("2")
+direct_from_position_multiplier = 3.0
+disabled = true
+metadata/_custom_type_script = "uid://t2qumytdskwu"
+
+[node name="PositionRoot" type="Node2D" parent="SwayHandler" unique_id=1942216132]
+
+[node name="PositionOffset" type="Node2D" parent="SwayHandler/PositionRoot" unique_id=666143658]
+
+[node name="Tile" parent="SwayHandler/PositionRoot/PositionOffset" unique_id=89225296 instance=ExtResource("3_1xsap")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_w00mb")
+
+[node name="Hitbox" type="Area2D" parent="SwayHandler/PositionRoot/PositionOffset" unique_id=1310698943 groups=["fish"]]
+unique_name_in_owner = true
+
+[node name="BodyCollision" type="CollisionShape2D" parent="SwayHandler/PositionRoot/PositionOffset/Hitbox" unique_id=624297424]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_r21pj")
+
+[node name="HeadCollision" type="CollisionShape2D" parent="SwayHandler/PositionRoot/PositionOffset/Hitbox" unique_id=1954231421]
+position = Vector2(-11, 0)
+shape = SubResource("CircleShape2D_ntllt")
+
+[node name="MouthMarker" type="Marker2D" parent="SwayHandler/PositionRoot/PositionOffset/Hitbox" unique_id=764305081]
+unique_name_in_owner = true
+position = Vector2(-21, 0)
+
+[node name="TailMarker" type="Marker2D" parent="SwayHandler/PositionRoot/PositionOffset/Hitbox" unique_id=320543208]
+unique_name_in_owner = true
+position = Vector2(16, 0)
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="." unique_id=2121307198]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_hlbu6")

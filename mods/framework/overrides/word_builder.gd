@@ -1,12 +1,5 @@
 extends "res://source/word_builder/word_builder.gd"
 
-#func get_tile_multiplier(tile: Tile) -> int:
-	#var mult:=1.0
-	#for status_id in TileStatusLoader.tile_value_multiplier_functions:
-		#if tile.has_status(status_id):
-			#mult*=TileStatusLoader.tile_value_multiplier_functions[status_id].call(tile)
-	#return super(tile)*mult
-
 func update_stats() -> void :
 	var words: = get_words()
 	intent_container.reset_intents()
@@ -85,10 +78,9 @@ func update_stats() -> void :
 		if gay and gay.invalidates_word():
 			add_warning_tile(warnings, WARNINGS.STRAIGHT, tile)
 		
-		for status_id in TileStatusLoader.word_affects:
-			var status := tile.get_status(status_id)
-			if status:
-				TileStatusLoader.word_affects[status_id].call(status,self,warnings)
+		for status in tile.get_statuses():
+			if status is CustomStatus:
+				status.word_effect(self,warnings)
 
 	var invalidated_linked_count: int = 0
 	var invalidated_linked_colors = {}
@@ -131,10 +123,9 @@ func update_stats() -> void :
 		if haze:
 			add_intent_tile(Intent.HAZE, tile, Game.balance.bleed_damage)
 		
-		for status_id in TileStatusLoader.board_affects:
-			var status := tile.get_status(status_id)
-			if status:
-				TileStatusLoader.word_affects[status_id].call(status,self,warnings)
+		for status in tile.get_statuses():
+			if status is CustomStatus:
+				status.board_effect(self,warnings)
 
 	tile_defense = int(ceil(defense * defense_multiplier))
 

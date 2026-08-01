@@ -1,15 +1,13 @@
-extends Status
+extends CustomStatus
 
-func update_frame() -> void :
-	var frame = 0
-	tile.tile_sprite.set_frame(frame)
-	tile.tile_sprite.update_texture()
-
-static func tile_value_modifier(status:Status,value:int)->float:
-	return -value
-
-#static func word_affect(status:Status,word_builder:Node2D) ->void:
-	#if status.tile.is_type(Globals.TileType.DAMAGE):
-		#word_builder.damage-=2*status.get_status_value()
-	#else:
-		#word_builder.defence-=2*status.get_status_value()
+func _init(_id: String) -> void:
+	super(_id)
+	face_color=[Color.WHITE,Color.WHITE]
+	deboss_color=[Color("08235b"),Color("382932")]
+	wood_textures=[preload("res://mods/foggy_glasses/negative tile sprites/inverted_wood_tile.png")]
+	plastic_texture=preload("res://mods/foggy_glasses/negative tile sprites/inverted_plastic_tile.png")
+	wood_fish_textures=[[preload("res://mods/foggy_glasses/negative tile sprites/inverted_wood_fish.png")],[preload("res://mods/foggy_glasses/negative tile sprites/inverted_wood_fish_flipped.png")]]
+	plastic_fish_textures=[preload("res://mods/foggy_glasses/negative tile sprites/inverted_plastic_fish.png"),preload("res://mods/foggy_glasses/negative tile sprites/inverted_plastic_fish_flipped.png")]
+	
+func get_tile_value(current_value:int)->int:
+	return -current_value
