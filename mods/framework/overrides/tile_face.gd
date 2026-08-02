@@ -8,11 +8,11 @@ func update_visual(call_face = true):
 	for status in tile.get_statuses():
 		if status is CustomStatus:
 			var face_color
-			if status.face_color!=null and not status.face_color.is_empty():
+			if not status.face_color.is_empty():
 				face_color=status.face_color[type_color_index%status.face_color.size()]
 				set_color(face_color)
 
-			if status.value_color!=null and not status.value_color.is_empty():
+			if not status.value_color.is_empty():
 				value_color = status.value_color[type_color_index%status.value_color.size()]
 			elif face_color!=null:
 				value_color=face_color

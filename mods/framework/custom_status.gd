@@ -11,8 +11,9 @@ static var value_color:Array[Color]
 static var deboss_color:Array[Color]
 
 func update_frame() -> void :
-	tile.tile_sprite.set_frame(0)
-	tile.tile_sprite.update_texture()
+	if (plastic_texture!=null and tile.type==Globals.TileType.DEFENSE) or (not wood_textures.is_empty() and tile.type==Globals.TileType.DAMAGE):
+		tile.tile_sprite.set_frame(0)
+		tile.tile_sprite.update_texture()
 
 ## Called for every tile with the status in the word builder, whenever the word builder is updated[br]
 ## Should be used to display intents, modify damage/defense values, or invalidate the word

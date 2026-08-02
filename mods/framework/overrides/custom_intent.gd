@@ -34,3 +34,8 @@ func update_sprite():
 			elif status in StatusIntentFrame:
 				sprite.frame = StatusIntentFrame[status]
 				break
+
+func matches(other_intent, other_context):
+	if typeof(other_intent)!=typeof(intent):
+		return false
+	return super(other_intent,other_context)

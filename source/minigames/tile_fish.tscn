@@ -6,7 +6,7 @@
 [ext_resource type="Shader" uid="uid://cdntiauj10va6" path="res://source/tile/hole.gdshader" id="4"]
 [ext_resource type="Texture2D" uid="uid://148kaduvpg0r" path="res://arte/tiles/hole_mask.png" id="5"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w00mb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1xsap"]
 resource_local_to_scene = true
 shader = ExtResource("4")
 shader_parameter/viewport_scale = Vector2(0, 0)
@@ -124,7 +124,7 @@ metadata/_custom_type_script = "uid://t2qumytdskwu"
 
 [node name="Tile" parent="SwayHandler/PositionRoot/PositionOffset" unique_id=89225296 instance=ExtResource("3_1xsap")]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_w00mb")
+material = SubResource("ShaderMaterial_1xsap")
 
 [node name="Hitbox" type="Area2D" parent="SwayHandler/PositionRoot/PositionOffset" unique_id=1310698943 groups=["fish"]]
 unique_name_in_owner = true

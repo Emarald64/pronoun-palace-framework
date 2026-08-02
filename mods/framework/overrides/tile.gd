@@ -7,7 +7,7 @@ func get_deboss_color():
 		if status.id != TileStatus.DEFAULT and status.id in TILE_DEBOSS_COLOR:
 			return TILE_DEBOSS_COLOR[status.id][type]
 		
-		if status is CustomStatus and status.deboss_color!=null:
+		if status is CustomStatus and not status.deboss_color.is_empty():
 			return status.deboss_color[type%status.deboss_color.size()]
 
 	return TILE_DEBOSS_COLOR[TileStatus.DEFAULT][type]
