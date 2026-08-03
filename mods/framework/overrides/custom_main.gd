@@ -81,7 +81,17 @@ func generate_act():
 		Game.debug_spawn_enemy = ""
 		act_events = act_events.slice(enemy_index)
 
+func has_red_letter_spell():
+	for spell in player.get_spells():
+		if spell.id in SpellLoader.spell_upgrades.values() or spell.secret_id in SpellLoader.spell_upgrades.values():
+			return true
+	
+	return false 
 
+func fill_spell_pool():
+	super()
+	if has_red_letter_spell():
+		remove_spell_from_pool(SPELLS.RED_LETTER)
 
 func spawn_enemy(enemy_name):
 	if enemy_name==Enemies.NOBODY and player.id in CharacterLoader.nobody_scenes:

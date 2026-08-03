@@ -29,6 +29,7 @@ func _ready() -> void:
 	#SpellLoader.add_spell("foggy_glasses",1000.0,"support")
 	SpellLoader.add_spell("inverter",1000.0,"support")
 	SpellLoader.add_spell_data("dew_jubilist_verification_can")
+	SpellLoader.spell_upgrades["dew_jubilist_verification_can"]=Globals.SPELLS.PRAXICE
 	
 	# add menu to mod settings menu
 	ModSettings.add_menu("Foggy Glasses Mod",generate_mod_settings_page)

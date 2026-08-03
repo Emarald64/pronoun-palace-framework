@@ -2,6 +2,7 @@ class_name SpellLoader extends Object
 
 static var spell_pool:Dictionary
 static var spell_categories:Dictionary=Globals.SPELL_CATEGORIES.duplicate(true)
+static var spell_upgrades=preload("res://source/spells/red_letter.gd").SPELL_UPGRADES.duplicate()
 
 static func _static_init():
 	add_vanillia_spells()
