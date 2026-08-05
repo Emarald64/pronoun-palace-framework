@@ -18,7 +18,9 @@ static var value_color:Array[Color]
 static var deboss_color:Array[Color]
 
 func update_frame() -> void :
-	if (plastic_texture!=null and tile.type==Globals.TileType.DEFENSE) or (not wood_textures.is_empty() and tile.type==Globals.TileType.DAMAGE):
+	if face_status:
+		super.update_frame()
+	else:
 		tile.tile_sprite.set_frame(0)
 		tile.tile_sprite.update_texture()
 

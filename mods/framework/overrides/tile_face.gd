@@ -6,7 +6,7 @@ func update_visual(call_face = true):
 	super(call_face)
 	var type_color_index: int = 0 if type == TileType.DAMAGE else 1
 	for status in tile.get_statuses():
-		if status is CustomStatus:
+		if status is CustomStatus and not status.face_status:
 			var face_color
 			if not status.face_color.is_empty():
 				face_color=status.face_color[type_color_index%status.face_color.size()]

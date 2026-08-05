@@ -11,6 +11,7 @@ var additional_files: PackedStringArray = [
 	"res://strings/menu/settings.txt",
 	"res://strings/credits/mods/framework.txt",
 	"res://source/minigames/tile_fish.tscn",
+	"res://source/spells/red_letter.gd",
 	#"res://.godot/uid_cache.bin", # saves uids so you dont get warning for every file you load
 	#"res://.godot/global_script_class_cache.cfg" # saves global classes
 ]

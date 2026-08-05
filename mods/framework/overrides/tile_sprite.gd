@@ -4,7 +4,7 @@ extends TileSprite
 func get_wood_texture() -> Texture2D:
 	var tile:Tile= get_node("../../..")
 	for status in tile.statuses.values():
-		if status is CustomStatus:
+		if status is CustomStatus and not status.face_status:
 			if is_fish and not status.wood_fish_textures.is_empty():
 				set_frames()
 				var fish_varients=status.wood_fish_textures[1 if is_flipped else 0]
@@ -19,7 +19,7 @@ func get_wood_texture() -> Texture2D:
 func get_plastic_texture() -> Texture2D:
 	var tile:Tile= get_node("../../..")
 	for status in tile.statuses.values():
-		if status is CustomStatus:
+		if status is CustomStatus and not status.face_status:
 			if is_fish:
 				set_frames()
 				return status.plastic_fish_textures[1 if is_flipped else 0]
