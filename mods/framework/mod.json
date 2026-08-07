@@ -3,7 +3,6 @@
 	"packs":[
 		{
 			"path":"framework.pck",
-			"override":true,
 			"phase":"early",
 		}
 	]
