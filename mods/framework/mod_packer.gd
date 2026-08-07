@@ -20,7 +20,7 @@ var pack_zip: = false
 func _run() -> void :
 	var pack: = PackMeta.new()
 
-	var mod_folder: = "res://mods/%s/" % mod_id
+	var mod_folder: = "res://mods/%s" % mod_id
 	for file in FileUtil.get_file_paths_recursive(mod_folder):
 		var file_name: = file.get_file()
 		if file_name not in IGNORED_FILES and file_name.get_extension() not in IGNORED_EXTENSIONS:
@@ -37,7 +37,7 @@ class PackMeta extends RefCounted:
 	var packed_resource_uids: Array[int] = []
 	var packed_resource_files: Array[String] = []
 
-	var global_classes: Array[Dictionary] = []
+	var global_classes = []
 
 
 	func pack_file(file: String) -> void :

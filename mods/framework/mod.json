@@ -4,6 +4,7 @@
 		{
 			"path":"framework.pck",
 			"phase":"early",
+			"override":true
 		}
 	]
 }

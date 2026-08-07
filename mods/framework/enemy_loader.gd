@@ -1,4 +1,4 @@
-class_name EnemyLoader extends Object
+class_name EnemyLoader
 
 ## Replacement enemy poolsm used instead of the vanilla ones
 static var enemy_pools:=Enemies.POOLS.duplicate_deep()
