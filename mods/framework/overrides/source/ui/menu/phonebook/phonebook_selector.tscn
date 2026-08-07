@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://crpsp5rxmq8qd"]
+
+[ext_resource type="PackedScene" uid="uid://cgb6in3eohl6q" path="res://source/ui/menu/phonebook/phonebook_selector.tscn" id="1_gclue"]
+[ext_resource type="Script" uid="uid://8r47cosxj4mt" path="res://mods/framework/overrides_old/phonebook_selector.gd" id="2_l635v"]
+
+[node name="PhonebookSelector" unique_id=1604969097 instance=ExtResource("1_gclue")]
+script = ExtResource("2_l635v")

@@ -1,0 +1,9 @@
+:negative:
+	:name:
+		Negative
+
+	:description:
+		Tile has a negative value.
+
+	:flags:
+		no_faceless_effect

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b1ttcaor888u3"]
+
+[ext_resource type="PackedScene" uid="uid://d1itq3oy6wgua" path="res://source/tile/tile.tscn" id="1_d6fpw"]
+[ext_resource type="Shader" uid="uid://cdntiauj10va6" path="res://source/tile/hole.gdshader" id="2_6b1sq"]
+[ext_resource type="Texture2D" uid="uid://148kaduvpg0r" path="res://arte/tiles/hole_mask.png" id="3_h8cmj"]
+[ext_resource type="Script" uid="uid://ccbxpkh2pupjg" path="res://mods/framework/overrides_old/tile.gd" id="4_7tp6q"]
+[ext_resource type="Script" uid="uid://dfkl3us2q4o8p" path="res://mods/framework/overrides_old/tile_sprite.gd" id="5_h8cmj"]
+[ext_resource type="Script" uid="uid://dqv56hdpbvat7" path="res://mods/framework/overrides_old/tile_face.gd" id="6_7tp6q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h8cmj"]
+resource_local_to_scene = true
+shader = ExtResource("2_6b1sq")
+shader_parameter/viewport_scale = Vector2(0, 0)
+shader_parameter/hole_mask = ExtResource("3_h8cmj")
+
+[node name="Tile" unique_id=89225296 instance=ExtResource("1_d6fpw")]
+material = SubResource("ShaderMaterial_h8cmj")
+script = ExtResource("4_7tp6q")
+
+[node name="TileSprite" parent="HoverContainer/SwayHandler" parent_id_path=PackedInt32Array(1465387899) index="0" unique_id=966228048]
+script = ExtResource("5_h8cmj")
+
+[node name="TileFace" parent="HoverContainer/SwayHandler/TileSprite" index="8" unique_id=1187762072]
+script = ExtResource("6_7tp6q")
+
+[editable path="HoverContainer/SwayHandler/TileSprite"]

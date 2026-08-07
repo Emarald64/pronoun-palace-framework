@@ -1,3 +1,4 @@
+class_name RedLetterSpell
 extends Spell
 
 const SPELL_UPGRADES = {
@@ -10,7 +11,7 @@ const SPELL_UPGRADES = {
 	SPELLS.GIFT_PUZZLE: SPELLS.MIRACLE_CACHE_PUZZLE, 
 }
 
-var custom_spell_upgrades = SPELL_UPGRADES.duplicate()
+static var custom_spell_upgrades: = SPELL_UPGRADES.duplicate()
 
 var replacing_clown_gift
 var is_gaining = false

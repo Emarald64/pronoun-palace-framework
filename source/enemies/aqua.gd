@@ -117,4 +117,4 @@ func apply_wooden_slash(tile:Tile)->void:
 	#super._on_projectile_impacted()
 
 func play_battle_music(_from_save: = false, _skipping_transition: = false) -> void :
-	AudioManager.play_music({LOOP=load("res://mods/foggy_glasses/aqua/miniboss_new_section_idea_wip.ogg")})
+	AudioManager.play_music({LOOP=load("res://mods/foggy_glasses/aqua/miniboss_new_section_idea_wip.ogg")},false,0.8)

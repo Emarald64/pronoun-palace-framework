@@ -1,0 +1,17 @@
+:name:
+	{:spell/verification_can/name:}
+
+:description:
+	{:spell/verification_can/description:}
+
+:label:
+	{:spell/verification_can/label:}
+
+:charge_category:
+	{:spell/verification_can/charge_category:}
+
+:max_charge:
+	{:spell/verification_can/max_charge:}
+
+:flags:
+	no_use_sound lexicographer

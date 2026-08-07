@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cls4ny1fbn7w7"]
+
+[ext_resource type="Script" uid="uid://b18k2h1a0plsx" path="res://mods/framework/mod_credits.gd" id="1_qg25t"]
+
+[node name="ModCredits" type="VBoxContainer" unique_id=1436105514]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_qg25t")

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b28rn6548en3g"]
+
+[ext_resource type="PackedScene" uid="uid://ckf627cerfixv" path="res://source/ui/menu/phonebook/phonebook_icon.tscn" id="1_wdpy7"]
+[ext_resource type="Script" uid="uid://c2q02qgghxci3" path="res://mods/framework/overrides_old/phonebook_icon.gd" id="2_3mh6m"]
+
+[node name="PhonebookIcon" unique_id=1442884140 instance=ExtResource("1_wdpy7")]
+script = ExtResource("2_3mh6m")

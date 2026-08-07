@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cih25qkfe5o6"]
+
+[ext_resource type="PackedScene" uid="uid://btiftdxh0qal0" path="res://source/ui/icons/character_icon.tscn" id="1_5tsbt"]
+[ext_resource type="Script" uid="uid://dup2b6kbpaj3t" path="res://mods/framework/overrides_old/character_icon.gd" id="2_peicd"]
+
+[node name="CharacterIcon" unique_id=1930440730 instance=ExtResource("1_5tsbt")]
+script = ExtResource("2_peicd")

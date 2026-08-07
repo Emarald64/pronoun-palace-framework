@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dg7nihhmlpikc"]
+
+[ext_resource type="PackedScene" uid="uid://cs7doa8yp3j8q" path="res://source/ui/menu/character_select/character_selector.tscn" id="1_d25dv"]
+[ext_resource type="Script" uid="uid://ci8fajdsw6kjc" path="res://mods/framework/overrides_old/character_selector.gd" id="2_i87vv"]
+[ext_resource type="Script" uid="uid://lqvmi0puq27m" path="res://mods/framework/scrolling_icon_selector.gd" id="2_ptoxw"]
+
+[node name="CharacterSelector" unique_id=1678367294 instance=ExtResource("1_d25dv")]
+script = ExtResource("2_i87vv")
+
+[node name="IconSelector" parent="PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer2" parent_id_path=PackedInt32Array(503509829) index="0" unique_id=993461638]
+script = ExtResource("2_ptoxw")

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cnltbwo8nnclu"]
+
+[ext_resource type="PackedScene" uid="uid://dk31c6wuhiw4h" path="res://source/ui/credits/credits.tscn" id="1_jke1i"]
+[ext_resource type="PackedScene" uid="uid://gvdlnfp2nyls" path="res://source/ui/credits/credits_header.tscn" id="2_x26j8"]
+[ext_resource type="PackedScene" uid="uid://cls4ny1fbn7w7" path="res://mods/framework/mod_credits.tscn" id="3_0ejfj"]
+
+[node name="Credits" unique_id=1004670430 instance=ExtResource("1_jke1i")]
+
+[node name="CreditsContainer" parent="." index="1" unique_id=1490441242]
+custom_minimum_size = Vector2(480, 0)
+
+[node name="Control6" type="Control" parent="CreditsContainer" index="3" unique_id=2102252612]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ModsHeader" parent="CreditsContainer" index="4" unique_id=1882271877 instance=ExtResource("2_x26j8")]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+key = "mod/framework/menu/mods"
+
+[node name="ModCredits" parent="CreditsContainer" index="5" unique_id=1436105514 instance=ExtResource("3_0ejfj")]
+layout_mode = 2
+
+[node name="FeaturingHeader" parent="CreditsContainer" index="7" unique_id=1882271877]
+text = ""
+
+[node name="PlaytestersHeader" parent="CreditsContainer" index="10" unique_id=674690052]
+text = ""
+
+[node name="PlaytestingHeader2" parent="CreditsContainer" index="13" unique_id=634008708]
+text = ""

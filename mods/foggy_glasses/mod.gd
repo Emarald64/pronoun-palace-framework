@@ -27,9 +27,9 @@ func _ready() -> void:
 	update_remove_other_enemies()
 	
 	#SpellLoader.add_spell("foggy_glasses",1000.0,"support")
-	SpellLoader.add_spell("inverter",1000.0,"support")
-	SpellLoader.add_spell_data("dew_jubilist_verification_can")
-	SpellLoader.spell_upgrades["dew_jubilist_verification_can"]=Globals.SPELLS.PRAXICE
+	#SpellLoader.add_spell("inverter",1000.0,"support")
+	#SpellLoader.add_spell_data("dew_jubilist_verification_can")
+	RedLetterSpell.custom_spell_upgrades["foggy_glasses:dew_jubilist_verification_can"]=Globals.SPELLS.PRAXICE
 	
 	# add menu to mod settings menu
 	ModSettings.add_menu("Foggy Glasses Mod",generate_mod_settings_page)
@@ -81,3 +81,9 @@ func get_save_data() -> Dictionary:
 		remove_other_enemies=remove_other_enemies,
 		smol_aqua=preload("res://source/enemies/sprites/aqua_sprite.gd").smol,
 		}
+
+func get_spell_ids() -> Array[String]:
+	return ["foggy_glasses:inverter","foggy_glasses:dew_jubilist_verification_can"]
+	
+func get_spell_pool(_category: String = "") -> Dictionary[String, float]:
+	return {"foggy_glasses:inverter":10.0}

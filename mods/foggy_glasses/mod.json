@@ -1,0 +1,9 @@
+{
+    "id": "foggy_glasses",
+    "packs":[
+        {
+            "path":"foggy_glasses.pck",
+            "override":false
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+:icon:
+	{:trans_icon: if trans}{:non_trans_icon: not trans}{:color:}
+:trans_icon:
+	[img=16]res://mods/foggy_glasses/dew_jubilist_icon.png[/img]
+:non_trans_icon:
+	[img=16]res://mods/foggy_glasses/dew_jubajalist_icon.png[/img]
+
+:color:
+	{:trans_color: if trans}{:non_trans_color: not trans}
+:non_trans_color:
+	[color=#61bfa4]
+:trans_color:
+	[color=#7e9d21]
+	
+:dew_jubilist:
+	::
+		::
+			What are {:icon:}[b][font_size=8]you[/font_size][/b][/color] doing [img=32]res://arte/ui/title_reference.png[/img][b][font_size=8]here[/font_size][/b]? [img=16]res://mods/foggy_glasses/nobody_icon.png[/img][color=DIM_GRAY][b][font_size=8]I[/font_size][/b][/color] didn't even revoke {:icon:}[b][font_size=8]you[/font_size][/b][/color]r [img=56]res://arte/ui/title_pronoun.png[/img]s.
+		::
+			{:icon:}[b][font_size=8]I[/font_size][/b][/color]'m here to [img=12]res://mods/foggy_glasses/housebroken_icon.png[/img][b][font_size=8]break[/font_size][/b] as [img=16]res://mods/foggy_glasses/m.webp[/img]any[img=16]res://arte/spells/letter_opener.png[/img][color=#5d5de2][b][font_size=8]things[/font_size][/b][/color] as possible.
+		::
+			{:icon:}[b][font_size=8]I[/font_size][/b][/color] think {:icon:}[b][font_size=8]I[/font_size][/b][/color]'ll [img=16]res://mods/foggy_glasses/cat_icon.png[/img][b][font_size=8]start[/font_size][/b] with [img=16]res://mods/foggy_glasses/nobody_icon.png[/img][color=RED][b][font_size=8]YOU[/font_size][/b][/color]
+			:flags:
+				character

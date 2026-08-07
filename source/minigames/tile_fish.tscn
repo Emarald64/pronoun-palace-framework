@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://pn5bm7ix104o" path="res://source/minigames/tile_fish.gd" id="1"]
 [ext_resource type="Script" uid="uid://t2qumytdskwu" path="res://source/effects/sway_handler.gd" id="2"]
-[ext_resource type="PackedScene" uid="uid://dcyokpyakista" path="res://mods/framework/overrides/tile.tscn" id="3_1xsap"]
-[ext_resource type="Shader" uid="uid://cdntiauj10va6" path="res://source/tile/hole.gdshader" id="4"]
+[ext_resource type="PackedScene" uid="uid://d1itq3oy6wgua" path="res://source/tile/tile.tscn" id="3"]
+[ext_resource type="Shader" uid="uid://cdntiauj10va6" path="res://source/shaders/hole.gdshader" id="4"]
 [ext_resource type="Texture2D" uid="uid://148kaduvpg0r" path="res://arte/tiles/hole_mask.png" id="5"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1xsap"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wjiys"]
 resource_local_to_scene = true
 shader = ExtResource("4")
 shader_parameter/viewport_scale = Vector2(0, 0)
@@ -122,9 +122,10 @@ metadata/_custom_type_script = "uid://t2qumytdskwu"
 
 [node name="PositionOffset" type="Node2D" parent="SwayHandler/PositionRoot" unique_id=666143658]
 
-[node name="Tile" parent="SwayHandler/PositionRoot/PositionOffset" unique_id=89225296 instance=ExtResource("3_1xsap")]
+[node name="Tile" parent="SwayHandler/PositionRoot/PositionOffset" unique_id=1636396715 instance=ExtResource("3")]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_1xsap")
+material = SubResource("ShaderMaterial_wjiys")
+is_preview = true
 
 [node name="Hitbox" type="Area2D" parent="SwayHandler/PositionRoot/PositionOffset" unique_id=1310698943 groups=["fish"]]
 unique_name_in_owner = true

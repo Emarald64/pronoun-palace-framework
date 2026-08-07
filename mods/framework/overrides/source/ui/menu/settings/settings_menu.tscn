@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cehqidbki0td5"]
+
+[ext_resource type="PackedScene" uid="uid://bcbv0t5n3n151" path="res://source/ui/menu/settings/settings_menu.tscn" id="1_sfh7q"]
+[ext_resource type="PackedScene" uid="uid://cs81r8efab4xv" path="res://mods/framework/mod_settings_menu.tscn" id="2_ik45q"]
+[ext_resource type="Script" uid="uid://dxi6fnm2sjccx" path="res://source/ui/menu/generic/tab_info.gd" id="3_75lx0"]
+
+[sub_resource type="Resource" id="Resource_6gur4"]
+script = ExtResource("3_75lx0")
+string_key = "menu/settings/general"
+tab_control = NodePath("../../SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/General")
+metadata/_custom_type_script = "uid://dxi6fnm2sjccx"
+
+[sub_resource type="Resource" id="Resource_e000g"]
+script = ExtResource("3_75lx0")
+string_key = "menu/settings/game"
+tab_control = NodePath("../../SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Game")
+metadata/_custom_type_script = "uid://dxi6fnm2sjccx"
+
+[sub_resource type="Resource" id="Resource_2s86n"]
+script = ExtResource("3_75lx0")
+string_key = "menu/settings/controls"
+tab_control = NodePath("../../SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Controls")
+metadata/_custom_type_script = "uid://dxi6fnm2sjccx"
+
+[sub_resource type="Resource" id="Resource_ooua1"]
+script = ExtResource("3_75lx0")
+string_key = "mod/framework/menu/settings/mods"
+tab_control = NodePath("../../SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox/Mod Settings Menu")
+metadata/_custom_type_script = "uid://dxi6fnm2sjccx"
+
+[node name="SettingsMenu" unique_id=1592660299 instance=ExtResource("1_sfh7q")]
+
+[node name="Mod Settings Menu" parent="PositionRoot/Panel/SectionedPanel/MainMask/MarginContainer/ScrollContainer/MarginContainer/ContentsBox" parent_id_path=PackedInt32Array(1400204219, 828913805) index="2" unique_id=1820237651 instance=ExtResource("2_ik45q")]
+layout_mode = 2
+
+[node name="TabController" parent="PositionRoot/Panel/Control" parent_id_path=PackedInt32Array(19899189) index="1" unique_id=130296830]
+tab_definitions = Array[ExtResource("3_75lx0")]([SubResource("Resource_6gur4"), SubResource("Resource_e000g"), SubResource("Resource_2s86n"), SubResource("Resource_ooua1")])
+
+[editable path="PositionRoot/Panel/SectionedPanel"]
