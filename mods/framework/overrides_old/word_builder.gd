@@ -1,7 +1,5 @@
 extends "res://source/word_builder/word_builder.gd"
 
-const override=true
-
 func update_stats() -> void :
 	var words: = get_words()
 	intent_container.reset_intents()

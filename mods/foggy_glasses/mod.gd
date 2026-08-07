@@ -4,6 +4,7 @@ var remove_other_enemies:=false
 var exisiting_enemy_pool:Array[String]
 #var enemy_loader
 #var framework
+const aqua_sprite=preload("res://mods/foggy_glasses/overrides/source/enemies/sprites/aqua_sprite.gd")
 
 func generate_mod_settings_page()->Control:
 	# instantiate settings page
@@ -60,26 +61,26 @@ func _on_options_updated(option_name:String,value):
 			remove_other_enemies=value
 			update_remove_other_enemies()
 		"Smol Aqua":
-			preload("res://source/enemies/sprites/aqua_sprite.gd").smol=value
+			aqua_sprite.smol=value
 
 func get_option_value(option_name:String):
 	match option_name:
 		"Remove Other Enemies":
 			return remove_other_enemies
 		"Smol Aqua":
-			return preload("res://source/enemies/sprites/aqua_sprite.gd").smol
+			return aqua_sprite.smol
 		"test selector":
 			return "option1"
 
 func load_save_data(data: Dictionary) -> void:
 	remove_other_enemies=data.get("remove_other_enemies",false)
-	preload("res://source/enemies/sprites/aqua_sprite.gd").smol=data.get("smol_aqua",false)
+	aqua_sprite.smol=data.get("smol_aqua",false)
 	update_remove_other_enemies()
 
 func get_save_data() -> Dictionary:
 	return {
 		remove_other_enemies=remove_other_enemies,
-		smol_aqua=preload("res://source/enemies/sprites/aqua_sprite.gd").smol,
+		smol_aqua=aqua_sprite.smol,
 		}
 
 func get_spell_ids() -> Array[String]:

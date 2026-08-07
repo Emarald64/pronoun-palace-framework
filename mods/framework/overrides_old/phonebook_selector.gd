@@ -1,4 +1,4 @@
-class_name PhonebookSelector
+#class_name PhonebookSelector
 extends "res://source/ui/menu/phonebook/phonebook_selector.gd"
 
 var row_limit=3
