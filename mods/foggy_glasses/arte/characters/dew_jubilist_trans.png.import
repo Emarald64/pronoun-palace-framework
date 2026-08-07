@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvoyj0hf4uowb"
-path="res://.godot/imported/dew_jubilist_trans.png-03a07e7647d8080fa2e7c6b1c4330470.ctex"
+path="res://.godot/imported/dew_jubilist_trans.png-abb04b1e4337529191dbd643ab3eee6e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arte/characters/dew_jubilist_trans.png"
-dest_files=["res://.godot/imported/dew_jubilist_trans.png-03a07e7647d8080fa2e7c6b1c4330470.ctex"]
+source_file="res://mods/foggy_glasses/arte/characters/dew_jubilist_trans.png"
+dest_files=["res://.godot/imported/dew_jubilist_trans.png-abb04b1e4337529191dbd643ab3eee6e.ctex"]
 
 [params]
 

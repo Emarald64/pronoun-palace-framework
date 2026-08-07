@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://dmg180a1myio" path="res://source/battle_unit/battle_unit_sprite.tscn" id="1_ph3qd"]
 [ext_resource type="Animation" uid="uid://gtyy16cm4mfw" path="res://anim/die.res" id="2_2o78j"]
-[ext_resource type="Texture2D" uid="uid://daaisrie81531" path="res://arte/enemies/aqua_body.png" id="2_63rc5"]
-[ext_resource type="Script" uid="uid://dtt4yx6njcg6q" path="res://source/enemies/sprites/aqua_sprite.gd" id="2_p08b3"]
-[ext_resource type="Texture2D" uid="uid://p7iejfb025u8" path="res://arte/enemies/aqua_knife_ready.png" id="3_63rc5"]
+[ext_resource type="Texture2D" uid="uid://daaisrie81531" path="res://mods/foggy_glasses/arte/enemies/aqua_body.png" id="2_63rc5"]
+[ext_resource type="Script" uid="uid://dtt4yx6njcg6q" path="res://mods/foggy_glasses/overrides/source/enemies/sprites/aqua_sprite.gd" id="2_p08b3"]
+[ext_resource type="Texture2D" uid="uid://p7iejfb025u8" path="res://mods/foggy_glasses/arte/enemies/aqua_knife_ready.png" id="3_63rc5"]
 [ext_resource type="Animation" uid="uid://dgoxvwe70vdkv" path="res://anim/dying.res" id="3_ph3qd"]
 [ext_resource type="Animation" uid="uid://ppxdd2otlmaq" path="res://anim/flinch.res" id="4_63rc5"]
 [ext_resource type="Script" uid="uid://dl30uhwqwo051" path="res://mods/foggy_glasses/aqua/chainswing_arms.gd" id="5_aoa43"]

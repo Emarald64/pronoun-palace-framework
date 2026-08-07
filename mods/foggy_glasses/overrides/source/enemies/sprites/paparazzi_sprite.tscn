@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d3shq1aroex5k"]
 
 [ext_resource type="PackedScene" uid="uid://dmg180a1myio" path="res://source/battle_unit/battle_unit_sprite.tscn" id="1_723ld"]
-[ext_resource type="Texture2D" uid="uid://dy3bokaetcn56" path="res://arte/enemies/paparazzi.png" id="2_t34f6"]
+[ext_resource type="Texture2D" uid="uid://dy3bokaetcn56" path="res://mods/foggy_glasses/arte/enemies/paparazzi.png" id="2_t34f6"]
 [ext_resource type="Animation" uid="uid://gtyy16cm4mfw" path="res://anim/die.res" id="3_ldfm3"]
 [ext_resource type="Animation" uid="uid://dgoxvwe70vdkv" path="res://anim/dying.res" id="4_x7jfa"]
 [ext_resource type="Animation" uid="uid://ppxdd2otlmaq" path="res://anim/flinch.res" id="5_gtlyp"]

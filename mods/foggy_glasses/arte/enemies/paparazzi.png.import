@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p7iejfb025u8"
-path="res://.godot/imported/aqua_knife_ready.png-5608c100e1f3d04c5d098ab45e28d7fd.ctex"
+uid="uid://dy3bokaetcn56"
+path="res://.godot/imported/paparazzi.png-9802d9073e6d4767a7aee4545a9a69b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arte/enemies/aqua_knife_ready.png"
-dest_files=["res://.godot/imported/aqua_knife_ready.png-5608c100e1f3d04c5d098ab45e28d7fd.ctex"]
+source_file="res://mods/foggy_glasses/arte/enemies/paparazzi.png"
+dest_files=["res://.godot/imported/paparazzi.png-9802d9073e6d4767a7aee4545a9a69b8.ctex"]
 
 [params]
 

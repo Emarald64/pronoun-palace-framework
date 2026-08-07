@@ -1,16 +1,16 @@
-[gd_scene format=3 uid="uid://dbit53hlocg0s"]
+[gd_scene format=3 uid="uid://b1s26uax8rrg5"]
 
-[ext_resource type="Script" uid="uid://pn5bm7ix104o" path="res://source/minigames/tile_fish.gd" id="1"]
-[ext_resource type="Script" uid="uid://t2qumytdskwu" path="res://source/effects/sway_handler.gd" id="2"]
-[ext_resource type="PackedScene" uid="uid://d1itq3oy6wgua" path="res://source/tile/tile.tscn" id="3"]
-[ext_resource type="Shader" uid="uid://cdntiauj10va6" path="res://source/shaders/hole.gdshader" id="4"]
-[ext_resource type="Texture2D" uid="uid://148kaduvpg0r" path="res://arte/tiles/hole_mask.png" id="5"]
+[ext_resource type="Script" uid="uid://pn5bm7ix104o" path="res://source/minigames/tile_fish.gd" id="1_3vfn7"]
+[ext_resource type="Script" uid="uid://t2qumytdskwu" path="res://source/effects/sway_handler.gd" id="2_mco1e"]
+[ext_resource type="PackedScene" uid="uid://b1ttcaor888u3" path="res://mods/framework/overrides/source/tile/tile.tscn" id="3_3vfn7"]
+[ext_resource type="Shader" uid="uid://cdntiauj10va6" path="res://source/tile/hole.gdshader" id="4_tt35n"]
+[ext_resource type="Texture2D" uid="uid://148kaduvpg0r" path="res://arte/tiles/hole_mask.png" id="5_5ovbq"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wjiys"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mco1e"]
 resource_local_to_scene = true
-shader = ExtResource("4")
+shader = ExtResource("4_tt35n")
 shader_parameter/viewport_scale = Vector2(0, 0)
-shader_parameter/hole_mask = ExtResource("5")
+shader_parameter/hole_mask = ExtResource("5_5ovbq")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r21pj"]
 
@@ -109,11 +109,11 @@ _data = {
 
 [node name="TileFish" type="Node2D" unique_id=1016019917]
 z_index = 10
-script = ExtResource("1")
+script = ExtResource("1_3vfn7")
 
 [node name="SwayHandler" type="Node2D" parent="." unique_id=1957950056]
 unique_name_in_owner = true
-script = ExtResource("2")
+script = ExtResource("2_mco1e")
 direct_from_position_multiplier = 3.0
 disabled = true
 metadata/_custom_type_script = "uid://t2qumytdskwu"
@@ -122,10 +122,9 @@ metadata/_custom_type_script = "uid://t2qumytdskwu"
 
 [node name="PositionOffset" type="Node2D" parent="SwayHandler/PositionRoot" unique_id=666143658]
 
-[node name="Tile" parent="SwayHandler/PositionRoot/PositionOffset" unique_id=1636396715 instance=ExtResource("3")]
+[node name="Tile" parent="SwayHandler/PositionRoot/PositionOffset" unique_id=89225296 instance=ExtResource("3_3vfn7")]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_wjiys")
-is_preview = true
+material = SubResource("ShaderMaterial_mco1e")
 
 [node name="Hitbox" type="Area2D" parent="SwayHandler/PositionRoot/PositionOffset" unique_id=1310698943 groups=["fish"]]
 unique_name_in_owner = true
