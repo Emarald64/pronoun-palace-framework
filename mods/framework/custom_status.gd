@@ -42,6 +42,14 @@ func get_tile_value(current_value:int)->int:
 func get_tile_face(current_face:String)->String:
 	return current_face
 
-## Called one if a tile with this effect is on the board or in the word when a word is submitted. Can be used to for example damage the player for effects like poison, remove the tile from the board, or remove the status from the tiles
-static func trigger(_tile_board:TileBoard)->void:
+## Called one if a tile with this effect is on the board when a word is submitted. Can be used to for example damage the player for effects like poison, remove the tile from the board, or remove the status from the tiles
+static func board_trigger(_tile_board:TileBoard)->void:
+	pass
+
+## Called if a tile with this effect is in the word when it is submitted. Can be used to for example damage or heal the player when the tile is played
+static func word_trigger(_word_builder:WordBuilder)->void:
+	pass
+
+## Called near the end of the word builder updating stats so intents can be added
+static func add_intents(_word_builder:WordBuilder)->void:
 	pass

@@ -17,6 +17,7 @@ func update_stats() -> void :
 
 	var shimmering_tiles = []
 	var link_color_tiles = {}
+	var custom_statuses:Dictionary[String,CustomStatus]={}
 	for tile: Tile in tiles:
 		var value: = tile.get_value()
 		var frozen: = tile.has_status(TileStatus.FROZEN)
@@ -78,8 +79,11 @@ func update_stats() -> void :
 		if gay and gay.invalidates_word():
 			add_warning_tile(warnings, WARNINGS.STRAIGHT, tile)
 		
-		for status in tile.get_statuses():
+		for status_id in tile.statuses:
+			var status=tile.statuses[status_id]
 			if status is CustomStatus:
+				if status_id not in custom_statuses:
+					custom_statuses[status_id]=status
 				status.word_effect(self,warnings)
 
 	var invalidated_linked_count: int = 0
@@ -123,8 +127,11 @@ func update_stats() -> void :
 		if haze:
 			add_intent_tile(Intent.HAZE, tile, Game.balance.bleed_damage)
 		
-		for status in tile.get_statuses():
+		for status_id in tile.statuses:
+			var status=tile.statuses[status_id]
 			if status is CustomStatus:
+				if status_id not in custom_statuses:
+					custom_statuses[status_id]=status
 				status.board_effect(self,warnings)
 
 	tile_defense = int(ceil(defense * defense_multiplier))
@@ -169,6 +176,9 @@ func update_stats() -> void :
 	for intent in SIMPLE_DAMAGE_INTENTS:
 		if intent in intent_tiles:
 			add_intent(intent, {damage = intent_value[intent]})
+
+	for custom_status:CustomStatus in custom_statuses.values():
+		custom_status.add_intents(self)
 
 	var invalid_link_tiles = []
 	var invalid_link_colors = []
@@ -231,3 +241,115 @@ func update_stats() -> void :
 
 	finished_updating_stats.emit(words)
 	intent_container.update_intents(false, true)
+
+func confirm_word(do_end_turn: = true, do_charge_spells: = true):
+	var words = get_words()
+	var enemy = main.enemy
+
+	word_hint.reset_warning()
+
+	is_submitting = true
+	main.game_state_updated.emit()
+	submitted_word.emit(words, damage, do_end_turn)
+
+	if is_freezing:
+		return
+
+	AudioManager.play_sound(Sounds.UI.WORD_SUBMIT)
+
+	var save: = SaveManager.get_save()
+	var new_word: = false
+	var new_word_is_slur: = false
+	for word in words.words:
+		if word not in save.word_stats:
+			new_word = true
+			if WordUtility.dictionary.word_has_flag(word, WordDictionary.WordFlags.SLUR):
+				new_word_is_slur = true
+
+	AchievementManager.submitted_words(words, tiles, damage, defense, self_heal, tile_defense)
+
+	intent_container.keep_intents(SIMPLE_DAMAGE_INTENTS + [Intent.LACED, Intent.SPIKED_SLOTS])
+
+	tile_board.add_crit_bonus(words.sub_lists)
+
+	var harming_laced_spells: Array[Spell] = []
+	for spell: Spell in player.get_spells():
+		spell.laced_temporarily_harmless = false
+		if spell.get_laced_damage() > 0:
+			harming_laced_spells.append(spell)
+		else:
+			spell.laced_temporarily_harmless = true
+	
+	var custom_statuses_in_word:Dictionary[String,CustomStatus]={}
+	for tile in tiles:
+		for status_id in tile.statuses:
+			if status_id not in custom_statuses_in_word and tile.statuses[status_id] is CustomStatus:
+				custom_statuses_in_word[status_id]=tile.statuses[status_id]
+	
+	await clear_word(do_charge_spells)
+
+	if new_word and save.word_stats.size() >= Globals.QOL_ADJUSTMENT_COUNT:
+		new_word_indicator.set_text(new_word_is_slur)
+		new_word_indicator.new_word()
+
+	await tile_board.fill_board()
+	await tile_board.wait_for_idle()
+
+	if player.is_flinching:
+		await player.recompose()
+
+	player.defense += defense
+
+	if bruise < 0:
+		player.defense += abs(bruise)
+	else:
+		player.bruise += bruise
+
+	if self_heal >= 0 and is_healing:
+		player.heal(self_heal, true)
+	elif self_heal < 0:
+		player.hurt( - self_heal, Globals.DamageType.PIERCING)
+
+	if slot_damage > 0:
+		player.hurt(slot_damage)
+		remove_intent(Intent.SPIKED_SLOTS)
+
+	if player.is_flinching:
+		await player.recompose()
+
+	for custom_status in custom_statuses_in_word.values():
+		custom_status.word_trigger(self)
+
+	if (damage != 0 or is_damaging) and not player.is_defeated:
+		await player.attack(enemy, damage)
+
+	main.run_stats.submitted_words(words, damage)
+
+	var turn_will_end: bool = do_end_turn or player.is_defeated or enemy.is_defeated or enemy.triggering_player_turn_end
+	if turn_will_end and not do_end_turn:
+		await main.start_ending_player_turn(true)
+
+	for spell: Spell in player.get_spells():
+		if spell not in harming_laced_spells and turn_will_end:
+			spell.laced_deactivated = true
+
+		spell.laced_temporarily_harmless = false
+
+	if not turn_will_end:
+		await tile_board.trigger_bottom_acid_tiles()
+
+		if player.is_flinching:
+			await player.recompose()
+
+	is_submitting = false
+
+	reset_stats()
+	resolve_words()
+	main.game_state_updated.emit()
+
+	if enemy != null and enemy.is_flinching:
+		await enemy.stopped_flinching
+
+	if turn_will_end:
+		enemy.triggering_player_turn_end = false
+		end_turn()
