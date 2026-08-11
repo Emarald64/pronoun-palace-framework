@@ -3,7 +3,7 @@
     "packs":[
         {
             "path":"foggy_glasses.pck",
-            "override":false
+            "override":true
         }
     ]
 }

@@ -4,6 +4,7 @@ class_name EnemyLoader
 static var enemy_pools:=Enemies.POOLS.duplicate_deep()
 static var shadows:=Enemies.SHADOWS.duplicate()
 static var custom_phonebook_icons:Dictionary[String,String]={}
+static var bosses:PackedStringArray=Enemies.BOSSES.duplicate()
 
 ## Add a regular enemy. Shadows enemies should use add_shadow instead 
 static func add_enemy(id:String,act:int,position_in_act:int,phonebook_icon_path:=""):

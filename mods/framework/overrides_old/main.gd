@@ -94,19 +94,27 @@ func fill_spell_pool():
 	if has_red_letter_spell():
 		remove_spell_from_pool(SPELLS.RED_LETTER)
 
-#func spawn_enemy(enemy_name):
-	#if enemy_name==Enemies.NOBODY and player.id in CharacterLoader.nobody_scenes:
-		#enemy_name = CharacterLoader.nobody_scenes[player.id]
-	#if enemy_name.get_extension() != "tscn":
-		#enemy_name = "res://source/enemies/" + enemy_name + ".tscn"
-#
-	#var enemy_scene = load(enemy_name)
-	#enemy = enemy_scene.instantiate()
-#
-	#Game.enemy = enemy
-	#last_enemy_id = enemy.id
-#
-	#enemy.action_finished.connect(_on_enemy_action_finished)
-	#enemy_marker.add_child(enemy)
-	#enemy_info_bar.set_battle_unit(enemy)
-	#enemy.set_intent_container( %EnemyIntentContainer)
+func increment_floor():
+	var last_event = act_events[0]
+	if "enemy" in last_event:
+		if last_event.enemy in EnemyLoader.bosses:
+			if player.id == Globals.CHARACTERS.CHILD:
+				await player.heal(Game.balance.boss_healing_child)
+			else:
+				await player.heal(Game.balance.boss_healing)
+
+			await AchievementManager.process_unlock_queue()
+
+	if not is_last_floor():
+		act_events.remove_at(0)
+		return
+
+	var next_act = get_next_act()
+	act_events = []
+	act = next_act
+
+	screen_wipe.wipe()
+	await screen_wipe.screen_covered
+	background.set_background_for_act(act)
+	background.initialize_layers()
+	background.play_pattern("loop")
