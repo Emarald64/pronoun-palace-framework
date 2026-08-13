@@ -14,7 +14,7 @@ func trigger_screw():
 				custom_statuses[status_id]=tile.statuses[status_id]
 	
 	for status:CustomStatus in custom_statuses.values():
-		status.trigger(self)
+		await status.board_trigger(self)
 
 #func create_tile() -> Tile:
 	#var tile=tile_scene.instantiate()

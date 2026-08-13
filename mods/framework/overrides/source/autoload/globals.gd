@@ -27,7 +27,7 @@ func is_difficulty_unlocked(difficulty: int, character: String = "") -> bool:
 		var character_difficulty = Globals.CHARACTER_DIFFICULTY_ACHIEVEMENTS[character]
 		return AchievementManager.has_achievement(character_difficulty, difficulty)
 
-func is_character_trans(id, difficulty):
+func is_character_trans(id, difficulty, daily: = false):
 	if difficulty == 10:
 		return id in CharacterLoader.added_characters or AchievementManager.has_achievement(CHARACTER_DIFFICULTY_ACHIEVEMENTS[id], 11)
 	else:

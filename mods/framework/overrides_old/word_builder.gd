@@ -318,7 +318,7 @@ func confirm_word(do_end_turn: = true, do_charge_spells: = true):
 		await player.recompose()
 
 	for custom_status in custom_statuses_in_word.values():
-		custom_status.word_trigger(self)
+		await custom_status.word_trigger(self)
 
 	if (damage != 0 or is_damaging) and not player.is_defeated:
 		await player.attack(enemy, damage)
