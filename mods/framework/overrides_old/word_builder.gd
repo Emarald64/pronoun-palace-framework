@@ -1,5 +1,7 @@
 extends "res://source/word_builder/word_builder.gd"
 
+static var extra_add_intent_functions:Array[Callable]=[]
+
 func update_stats() -> void :
 	var words: = get_words()
 	intent_container.reset_intents()
@@ -178,7 +180,11 @@ func update_stats() -> void :
 			add_intent(intent, {damage = intent_value[intent]})
 
 	for custom_status:CustomStatus in custom_statuses.values():
+		@warning_ignore("static_called_on_instance")
 		custom_status.add_intents(self)
+
+	for extra_add_intent_function in extra_add_intent_functions:
+		extra_add_intent_function.call(self)
 
 	var invalid_link_tiles = []
 	var invalid_link_colors = []
