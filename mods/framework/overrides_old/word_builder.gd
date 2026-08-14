@@ -1,6 +1,7 @@
 extends "res://source/word_builder/word_builder.gd"
 
 static var extra_add_intent_functions:Array[Callable]=[]
+static var warning_priority:=WARNING_PRIORITY.duplicate()
 
 func update_stats() -> void :
 	var words: = get_words()
@@ -218,7 +219,7 @@ func update_stats() -> void :
 
 
 	var has_warning: = false
-	for warning_id in WARNING_PRIORITY:
+	for warning_id in warning_priority:
 		if warning_id in warnings:
 			has_warning = true
 			word_hint.set_warning("misc/word_warnings/" + warning_id, warnings[warning_id])
