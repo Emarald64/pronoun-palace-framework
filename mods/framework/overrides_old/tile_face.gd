@@ -18,9 +18,9 @@ func update_visual(call_face = true):
 			elif face_color!=null:
 				value_color=face_color
 
-func alter_face_text(text: String) -> String:
+func alter_face_text(text: String, do_period:=true) -> String:
 	for status in tile.get_statuses():
 		if status is CustomStatus:
 			text=status.get_tile_face(text)
 
-	return super(text)
+	return super(text,do_period)
