@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://bkqpikq5j6yu"]
-
-[ext_resource type="Script" uid="uid://2ymolji3o2a6" path="res://mods/foggy_glasses/mod.gd" id="1_3bc7k"]
-
-[node name="Mod" type="Node" unique_id=1473178649]
-script = ExtResource("1_3bc7k")

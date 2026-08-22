@@ -1,11 +1,2 @@
-/*
-
-!mods
-
-mods/*
-
-!mods/framework
-!mods/foggy_glasses
-
-mods/*/*.pck
-mods/*/*.zip
+*.pck
+*.zip

@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://rkvlupjrl487"]
-
-[ext_resource type="PackedScene" uid="uid://1sw8ctu6p06r" path="res://source/enemies/nobody/nobody_lexicographer.tscn" id="1_svuoe"]
-
-[node name="Nobody" unique_id=2073064273 instance=ExtResource("1_svuoe")]
