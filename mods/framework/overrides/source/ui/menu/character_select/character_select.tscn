@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dg7nihhmlpikc"]
+
+[ext_resource type="PackedScene" uid="uid://bceic7if0mq8s" path="res://source/ui/menu/character_select/character_select.tscn" id="1_87jfa"]
+[ext_resource type="Script" uid="uid://bvajt7m8ele4e" path="res://mods/framework/overrides_old/difficulty_selector.gd" id="2_eucse"]
+[ext_resource type="Script" uid="uid://ci8fajdsw6kjc" path="res://mods/framework/overrides_old/character_selector.gd" id="2_v5gg0"]
+[ext_resource type="Script" uid="uid://lqvmi0puq27m" path="res://mods/framework/scrolling_icon_selector.gd" id="3_km5dq"]
+
+[node name="CharacterSelect" unique_id=2090113811 instance=ExtResource("1_87jfa")]
+
+[node name="CharacterSelector" parent="." index="0" unique_id=1213781438]
+script = ExtResource("2_v5gg0")
+
+[node name="IconSelector" parent="CharacterSelector/PositionRoot/Panel/MarginContainer/HBoxContainer/VBoxContainer2" parent_id_path=PackedInt32Array(1213781438, 503509829) index="0" unique_id=993461638]
+script = ExtResource("3_km5dq")
+
+[node name="DifficultySelector" parent="." index="1" unique_id=460314819]
+script = ExtResource("2_eucse")
+
+[editable path="CharacterSelector"]
