@@ -11,6 +11,8 @@ static var nobody_scenes:Dictionary[String,String]={}
 ## Character id to an array of strings, the first string being the path the speech bubble and the second the path the the speech buble tail
 static var speech_bubbles:Dictionary[String,Array]={}
 
+static var custom_spell_upgrades:Dictionary=load("res://source/spells/red_letter.gd").SPELL_UPGRADES.duplicate()
+
 const default_save_data={
 	selected_character_difficulty={}
 	}

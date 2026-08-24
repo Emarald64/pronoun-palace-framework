@@ -1,21 +1,5 @@
-class_name RedLetterSpell
-extends Spell
-
-const SPELL_UPGRADES = {
-	SPELLS.LETTER_OPENER: SPELLS.SILVER_LETTER_OPENER, 
-	SPELLS.HOLE_PUNCH: SPELLS.SCALPEL, 
-	SPELLS.FISHING_ROD: SPELLS.REINFORCED_FISHING_ROD, 
-	SPELLS.SALT: SPELLS.SALT_AND_PEPPER, 
-	SPELLS.GIFT_ENHANCING: SPELLS.MIRACLE_CACHE_ENHANCING, 
-	SPELLS.GIFT_DEFENSE: SPELLS.MIRACLE_CACHE_DEFENSE, 
-	SPELLS.GIFT_PUZZLE: SPELLS.MIRACLE_CACHE_PUZZLE, 
-}
-
-static var custom_spell_upgrades: = SPELL_UPGRADES.duplicate()
-
-var replacing_clown_gift
-var is_gaining = false
-
+#class_name RedLetterSpell
+extends "res://source/spells/red_letter.gd"
 
 
 func _use():
@@ -36,9 +20,9 @@ func get_tooltip_context():
 
 
 func get_spell_convert_from_id(spell: Spell) -> String:
-	if spell.id in custom_spell_upgrades:
+	if spell.id in CharacterLoader.custom_spell_upgrades:
 		return spell.id
-	elif spell.secret_id in custom_spell_upgrades:
+	elif spell.secret_id in CharacterLoader.custom_spell_upgrades:
 		return spell.secret_id
 	else:
 		return ""
@@ -52,7 +36,7 @@ func track_red_letter_upgrades_found() -> void :
 
 		var other_convert_from_id: = get_spell_convert_from_id(other_spell)
 		if other_convert_from_id != "":
-			save.track_spell_found(custom_spell_upgrades[other_convert_from_id], Game.difficulty)
+			save.track_spell_found(CharacterLoader.custom_spell_upgrades[other_convert_from_id], Game.difficulty)
 
 
 func upgrade_spell(spell: Spell) -> void :
@@ -62,9 +46,9 @@ func upgrade_spell(spell: Spell) -> void :
 
 	if AchievementManager.should_track_stats():
 		track_red_letter_upgrades_found()
-		SaveManager.get_save().track_spell_taken(custom_spell_upgrades[convert_from_id], Game.difficulty)
+		SaveManager.get_save().track_spell_taken(CharacterLoader.custom_spell_upgrades[convert_from_id], Game.difficulty)
 
-	spell.transform_spell(custom_spell_upgrades[convert_from_id], not convert_from_id in Globals.GIFTS)
+	spell.transform_spell(CharacterLoader.custom_spell_upgrades[convert_from_id], not convert_from_id in Globals.GIFTS)
 
 
 func get_upgrading_spell() -> Spell:
@@ -108,3 +92,9 @@ func track_found() -> void :
 	super.track_found()
 	if AchievementManager.should_track_stats():
 		track_red_letter_upgrades_found()
+
+func get_description() -> String:
+	if Game.is_in_run() and Game.player.id in CharacterLoader.added_characters:
+		return get_string_group().get_string(Game.player.id, get_tooltip_context())
+	else:
+		return super()

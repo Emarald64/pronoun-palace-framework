@@ -28,7 +28,7 @@ static func change_script_and_copy_properties(object:Object,script:Script):
 
 
 func _ready() -> void:
-	var tree:=get_tree()
+	#var tree:=get_tree()
 	#tree.scene_changed.connect(_on_scene_change)
 	#tree.node_added.connect(_on_node_added)
 	#var current_scene=get_tree().current_scene
@@ -41,8 +41,8 @@ func _ready() -> void:
 			var popup=load("res://mods/framework/incompatible_version_popup.tscn").instantiate()
 			popup.get_node("Label").text="The version of the game you are running ("+ProjectSettings.get_setting("application/config/version")+")\nmay be incompatible with this version of the framework for "+pronoun_palace_version+"\nproceed at you own risk"
 			add_child(popup)
-	await tree.process_frame
-	tree.reload_current_scene.call_deferred()
+	#await tree.process_frame
+	#tree.reload_current_scene.call_deferred()
 
 func load_save_data(data: Dictionary):
 	CharacterLoader.save_data=data.get("character",{})

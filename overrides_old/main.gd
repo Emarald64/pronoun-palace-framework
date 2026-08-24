@@ -84,7 +84,7 @@ func generate_act():
 
 func has_red_letter_spell():
 	for spell in player.get_spells():
-		if spell.id in RedLetterSpell.custom_spell_upgrades.values() or spell.secret_id in RedLetterSpell.custom_spell_upgrades.values():
+		if spell.id in CharacterLoader.custom_spell_upgrades.values() or spell.secret_id in CharacterLoader.custom_spell_upgrades.values():
 			return true
 	
 	return false 
