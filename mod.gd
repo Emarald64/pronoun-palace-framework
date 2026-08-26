@@ -1,7 +1,7 @@
 class_name Framework extends Mod
 
 const pronoun_palace_version="1.2.9"
-const framework_version="1.5.8"
+const framework_version="1.5.7"
 
 static var mod_settings_menu:Control
 
