@@ -7,5 +7,5 @@
 			"override":true
 		}
 	],
-	"override":"early"
+	"override_phase":"early"
 }
