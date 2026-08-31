@@ -1,0 +1,14 @@
+The following scripts make use of code from Pronoun Palace and are not covered by this project's license:
+
+overrides/spells/red_letter.gd
+overrides/autoload/globals.gd
+overrides_old/character_icon.gd
+overrides_old/character_selector.gd
+overrides_old/custom_nobody.gd
+overrides_old/difficulty_selector.gd
+overrides_old/intent.gd
+overrides_old/main.gd
+overrides_old/phonebook_selector.gd
+overrides_old/tile.gd
+overrides_old/word_builder.gd
+mod_packer.gd
