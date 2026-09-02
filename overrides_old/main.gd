@@ -118,3 +118,7 @@ func increment_floor():
 	background.set_background_for_act(act)
 	background.initialize_layers()
 	background.play_pattern("loop")
+
+func start_run():
+	spell_select.rng.clown=ClownGiftRNG.new()
+	await super()

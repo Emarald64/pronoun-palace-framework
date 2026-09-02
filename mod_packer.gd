@@ -3,8 +3,9 @@ extends EditorScript
 
 const IGNORED_FILES = [
 	"mod.json", 
-	".authoring", 
-	".ignore"
+	"mod.authoring", 
+	"mod.ignore",
+	"mod_packer.gd"
 ]
 
 const IGNORED_EXTENSIONS = [
