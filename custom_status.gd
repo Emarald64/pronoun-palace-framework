@@ -3,19 +3,19 @@ class_name CustomStatus
 extends Status
 
 ## Texture used for plastic tiles
-static var plastic_texture:Texture2D
+var plastic_texture:Texture2D
 ## Textures used for wooden tiles, there are 3 wood variations, though it will work if you have less
-static var wood_textures:Array[Texture2D]
+var wood_textures:Array[Texture2D]
 ## Two textures for plastic fish, the first is the regular one and the second is the flipped one
-static var plastic_fish_textures:Array[Texture2D]
+var plastic_fish_textures:Array[Texture2D]
 ## Two arrays of textures, first one for regular fish, second for flipped fish. Each can have up to 3 wood variations, though it will work with less.
-static var wood_fish_textures:Array[Array]
+var wood_fish_textures:Array[Array]
 ## The color of the text on the tile. The first color is for wood tiles, and the second is for plastic tiles. If value color is empty, these colors will also be used for the value number
-static var face_color:Array[Color]
+var face_color:Array[Color]
 ## The color of the value of the tile. The first color is for wood tiles, and the second is for plastic tiles. If empty, the face colors will be used for the value.
-static var value_color:Array[Color]
+var value_color:Array[Color]
 ## The color of the shadow under the face text. The first color is for wood tiles and the second is for plastic tiles.
-static var deboss_color:Array[Color]
+var deboss_color:Array[Color]
 
 func update_frame() -> void :
 	if face_status:

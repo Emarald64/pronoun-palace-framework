@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bqljdw6jv1xfr"]
 
 [ext_resource type="PackedScene" uid="uid://bjxidue8cu3k" path="res://source/enemies/nobody.tscn" id="1_v7ekp"]
-[ext_resource type="Script" uid="uid://dd4kyi567cwny" path="res://mods/framework/overrides/custom_nobody.gd" id="2_jgmx5"]
+[ext_resource type="Script" uid="uid://dd4kyi567cwny" path="res://mods/framework/overrides_old/custom_nobody.gd" id="2_jgmx5"]
 
 [node name="Nobody" unique_id=2073064273 instance=ExtResource("1_v7ekp")]
 script = ExtResource("2_jgmx5")
