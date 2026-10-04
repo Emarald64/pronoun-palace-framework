@@ -15,6 +15,11 @@ func trigger_screw():
 	
 	for status:CustomStatus in custom_statuses.values():
 		await status.board_trigger(self)
+	
+	var player = Game.player
+	
+	if player.is_flinching:
+		await player.recompose()
 
 #func create_tile() -> Tile:
 	#var tile=tile_scene.instantiate()

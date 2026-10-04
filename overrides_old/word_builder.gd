@@ -287,6 +287,12 @@ func confirm_word(do_end_turn: = true, do_charge_spells: = true):
 		else:
 			spell.laced_temporarily_harmless = true
 	
+	var custom_statuses_on_board:Dictionary[String,CustomStatus]={}
+	for tile in tile_board.get_tiles():
+		for status_id in tile.statuses:
+			if status_id not in custom_statuses_on_board and tile.statuses[status_id] is CustomStatus:
+				custom_statuses_on_board[status_id]=tile.statuses[status_id]
+	
 	var custom_statuses_in_word:Dictionary[String,CustomStatus]={}
 	for tile in tiles:
 		for status_id in tile.statuses:
@@ -325,7 +331,12 @@ func confirm_word(do_end_turn: = true, do_charge_spells: = true):
 		await player.recompose()
 
 	for custom_status in custom_statuses_in_word.values():
-		await custom_status.word_trigger(self)
+		custom_status.word_trigger(self)
+	
+	if player.is_flinching:
+		await player.recompose()
+
+
 
 	if (damage != 0 or is_damaging) and not player.is_defeated:
 		await player.attack(enemy, damage)

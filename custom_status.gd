@@ -18,11 +18,11 @@ var value_color:Array[Color]
 var deboss_color:Array[Color]
 
 func update_frame() -> void :
-	if face_status:
-		super.update_frame()
-	else:
+	if exclusive:
 		tile.tile_sprite.set_frame(0)
 		tile.tile_sprite.update_texture()
+	else:
+		pass
 
 ## Called for every tile with the status in the word builder, whenever the word builder is updated[br]
 ## Should be used to display intents, modify damage/defense values, or invalidate the word
