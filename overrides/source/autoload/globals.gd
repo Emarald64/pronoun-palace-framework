@@ -21,7 +21,7 @@ func is_difficulty_unlocked(difficulty: int, character: String = "") -> bool:
 	if character == "":
 		return AchievementManager.has_achievement(Globals.ACHIEVEMENTS.OVERALL_MAX_DIFFICULTY, difficulty)
 	else:
-		if not Globals.is_character_unlocked(character):
+		if not is_character_unlocked(character):
 			return false
 
 		var character_difficulty = Globals.CHARACTER_DIFFICULTY_ACHIEVEMENTS[character]

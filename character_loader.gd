@@ -7,9 +7,9 @@ static var added_character_icons:Dictionary[String,Texture2D]={}
 ## Character id to spell id
 static var character_spells:Dictionary[String,String]={}
 ## Character id to path to nobody scene
-static var nobody_scenes:Dictionary[String,String]={}
+#static var nobody_scenes:Dictionary[String,String]={}
 ## Character id to an array of strings, the first string being the path the speech bubble and the second the path the the speech buble tail
-static var speech_bubbles:Dictionary[String,Array]={}
+#static var speech_bubbles:Dictionary[String,Array]={}
 
 static var custom_spell_upgrades:Dictionary=load("res://source/spells/red_letter.gd").SPELL_UPGRADES.duplicate()
 
@@ -21,11 +21,11 @@ static var save_data=default_save_data.duplicate_deep()
 
 ## Add a custom character. 
 ## Character spells should be marked as character specific by putting a character id in their tags, It doesn't mattch what character is put in the tags, using a vanilla character is recomended.
-static func add_character(id:String,character_spell:String=Globals.SPELLS.LETTER_OPENER,character_icon:Texture2D=null,nobody_scene_path="res://mods/framework/overrides/custom_nobody.tscn"):
+static func add_character(id:String,character_spell:String=Globals.SPELLS.LETTER_OPENER,character_icon:Texture2D=null):
 	added_characters.append(id)
 	character_spells[id]=character_spell
 	if character_icon!=null:
 		added_character_icons[id]=character_icon
-	nobody_scenes[id]=nobody_scene_path
+	#nobody_scenes[id]=nobody_scene_path
 	print("added charater: "+id)
 	

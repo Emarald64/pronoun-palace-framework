@@ -7,12 +7,14 @@ func set_character(id: String, trans: bool = false) -> void :
 		if id in CharacterLoader.added_character_icons:
 			texture=CharacterLoader.added_character_icons[id]
 			hframes=1
+			vframes=int(texture.get_size().y/32)
 		frame=0
 	else:
 		frame = Globals.CHARACTER_ICONS[id]
 	if trans:
 		if id in CharacterLoader.added_character_icons:
-			frame=1
+			if vframes>1:
+				frame=1
 		else:
 			frame += 5
 

@@ -38,7 +38,7 @@ func update_character() -> void :
 		spell.set_curse(Globals.SPELL_CURSES.CURSED)
 
 	%SpellSprite.link_spell(spell)
-	%SpellName.text = string_or_locked("spell/" + spell_id + "/name", {curse = "cursed" if character_difficulty == 10 else ""})
+	%SpellName.text = string_or_locked(spell.spell_data.get_string_identifier()+"/name", {curse = "cursed" if character_difficulty == 10 else ""})
 	%SpellDescription.text = char_string_or_locked("spell_description")
 
 	%InfoTitle.text = char_string_or_locked("info_title")
@@ -63,18 +63,18 @@ func get_character_difficulty(character: String) -> int:
 	else:
 		return super(character)
 
-func _on_start_appearing() -> void :
-	if not icons_instantiated:
-		instantiate_icons()
-
-	update_character_icons()
-
-	selected_character = SaveManager.get_save_data().selected_character
-	if (selected_character not in CHARACTERS.values() and selected_character not in CharacterLoader.added_characters) or not Globals.is_character_unlocked(selected_character):
-		selected_character = CHARACTERS.LEXICOGRAPHER
-
-	icon_selector.set_initial_selection(CHAR_ORDER.find(selected_character))
-	select_character(selected_character)
-	await get_tree().process_frame
-	if selected_character in CharacterLoader.added_characters:
-		icon_selector.get_child(1).ensure_control_visible(icon_selector.icons[5+CharacterLoader.added_characters.find(selected_character)])
+#func _on_start_appearing() -> void :
+	#if not icons_instantiated:
+		#instantiate_icons()
+#
+	#update_character_icons()
+#
+	#selected_character = SaveManager.get_save_data().selected_character
+	#if (selected_character not in CHARACTERS.values() and selected_character not in CharacterLoader.added_characters) or not Globals.is_character_unlocked(selected_character):
+		#selected_character = CHARACTERS.LEXICOGRAPHER
+#
+	#icon_selector.set_initial_selection(CHAR_ORDER.find(selected_character))
+	#select_character(selected_character)
+	#await get_tree().process_frame
+	#if selected_character in CharacterLoader.added_characters:
+		#icon_selector.get_child(1).ensure_control_visible(icon_selector.icons[5+CharacterLoader.added_characters.find(selected_character)])

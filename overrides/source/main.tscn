@@ -2,17 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://dt2be1wikfttk" path="res://source/main.tscn" id="1_eqhxv"]
 [ext_resource type="Script" uid="uid://c1lwldvi5k2ow" path="res://mods/framework/overrides_old/main.gd" id="2_xq2g7"]
-[ext_resource type="Script" uid="uid://bqho8jm086ac6" path="res://mods/framework/overrides_old/tile_board.gd" id="3_1u4sy"]
-[ext_resource type="Script" uid="uid://bdtjne10kyiqd" path="res://mods/framework/overrides_old/word_builder.gd" id="4_5d34a"]
 
 [node name="Main" unique_id=180122661 instance=ExtResource("1_eqhxv")]
 script = ExtResource("2_xq2g7")
 
-[node name="TileBoard" parent="GameUILayer" parent_id_path=PackedInt32Array(1903357470) index="2" unique_id=1619504647]
-script = ExtResource("3_1u4sy")
+[node name="Label" parent="MenuLayer/PauseMenu/ResumeButton/HoverOffset/Panel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(87354898, 210692313) index="0" unique_id=244723960]
+theme_override_font_sizes/font_size = 7
+text = "menu/pause/resume"
 
-[node name="WordBuilder" parent="GameUILayer" parent_id_path=PackedInt32Array(1903357470) index="3" unique_id=952275895]
-script = ExtResource("4_5d34a")
+[node name="ActionGlyph" parent="MenuLayer/PauseMenu/ResumeButton/HoverOffset/Panel" parent_id_path=PackedInt32Array(87354898, 1166464853) index="4" unique_id=1185166845]
+offset_left = -5.0
+offset_right = 11.0
+action = &"menu_back"
 
 [editable path="GameUILayer/TileBoard"]
 [editable path="MenuLayer/PauseMenu/ResumeButton"]
